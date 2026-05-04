@@ -54,7 +54,7 @@
       <!-- Track yang bergerak ke kiri berdasarkan scrollProgress -->
       <div 
         bind:clientWidth={trackWidth}
-        class="flex items-center gap-10 lg:gap-24 absolute left-6 lg:left-[calc((100vw-1400px)/2+24px)] transition-transform duration-75 ease-out z-10 w-max pr-12 lg:pr-32" 
+        class="flex items-center gap-10 lg:gap-24 absolute left-6 md:left-12 lg:left-[max(3rem,calc((100vw-1400px)/2+1.5rem))] transition-transform duration-75 ease-out z-10 w-max pr-12 lg:pr-32" 
         style="transform: translateX(-{scrollProgress * maxTranslate}px);"
       >
         
@@ -92,15 +92,14 @@
         <!-- FINAL CTA SLIDE DI AKHIR SCROLL -->
         <div class="w-[90vw] lg:w-[1100px] shrink-0 flex items-center justify-between gap-12 lg:gap-24 pl-10 lg:pl-32 relative z-20">
           
-          <!-- Huruf K Raksasa Menggantikan V -->
-          <div class="hidden lg:flex w-1/2 justify-center relative select-none">
+          <!-- Gambar K Raksasa -->
+          <div class="hidden lg:flex w-1/2 justify-center relative select-none items-center">
             <div class="absolute inset-0 bg-primary/30 blur-[120px] rounded-full"></div>
-            <span 
-              class="relative text-[500px] leading-none font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-primary to-background drop-shadow-[0_20px_50px_rgba(147,51,234,0.8)]" 
-              style="-webkit-text-stroke: 6px rgba(255,255,255,0.3);"
-            >
-              K
-            </span>
+            <img 
+              src="/assets/k.png" 
+              alt="Kodeflow Icon" 
+              class="relative w-[350px] h-auto drop-shadow-[0_20px_50px_rgba(131,25,160,0.8)] z-10 animate-float"
+            />
           </div>
 
           <!-- Teks CTA & Tombol -->

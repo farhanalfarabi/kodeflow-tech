@@ -103,17 +103,16 @@ export const CTA_LABEL = "Book a Call";
 export const CTA_HREF = "https://wa.me/6285733235489";
 
 export const FOOTER_LINKS = [
-  { label: "About Us", href: "https://kodeflow.id/about" },
-  { label: "Projects", href: "https://kodeflow.id/projects" },
-  { label: "Blogs", href: "https://kodeflow.id/blogs" },
-  { label: "Contact", href: "https://kodeflow.id/contact" },
-  { label: "Privacy Policy", href: "https://kodeflow.id/privacy" }
+  { label: "About Us", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy" }
 ];
 export const COPYRIGHT = "© 2026 Kodeflow. All rights reserved.";
 export const NAV_ITEMS = [
-  { label: "About Us", href: "https://kodeflow.id/about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "https://kodeflow.id/projects" },
-  { label: "Blogs", href: "https://kodeflow.id/blogs" },
-  { label: "Book a Call", href: "https://wa.me/6285733235489" }
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Blogs", href: "/blogs" }
 ];

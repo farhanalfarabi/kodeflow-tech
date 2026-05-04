@@ -5,31 +5,33 @@
   let show = false;
 </script>
 
-<section class="relative py-32 md:py-44 overflow-hidden">
-  <video 
-    src={STATS_BG_VIDEO} 
-    autoplay 
-    loop 
-    muted 
-    playsinline 
-    class="absolute inset-0 w-full h-full object-cover filter saturate-0"
-  ></video>
-  <div class="absolute top-0 inset-x-0 h-[200px] gradient-fade-t"></div>
-  <div class="absolute bottom-0 inset-x-0 h-[200px] gradient-fade-b"></div>
+<section class="bg-white pb-8 relative z-20">
+  <div class="relative z-30 w-full max-w-[1100px] mx-auto px-6 flex justify-center translate-y-32">
+    <div class="relative w-full border border-white/10 rounded-[32px] p-10 md:p-14 shadow-[0_30px_80px_rgba(0,0,0,0.5)] overflow-hidden bg-[#0a0a0a]">
+    
+    <!-- Video Background inside the card -->
+    <video 
+      src={STATS_BG_VIDEO} 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      class="absolute inset-0 w-full h-full object-cover filter saturate-0 opacity-60"
+    ></video>
+    <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
 
-  <div class="liquid-glass rounded-3xl p-10 md:p-14 mx-[var(--gutter)] max-w-[var(--max)] md:mx-auto relative z-10">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 relative" use:inview on:enter={() => show = true}>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 relative text-center md:text-left z-10" use:inview on:enter={() => show = true}>
       {#each STATS as stat, i}
-        <div class="flex flex-col relative z-10">
-          <span class="font-display italic text-5xl md:text-6xl lg:text-7xl leading-none text-foreground">
+        <div class="flex flex-col items-center md:items-start relative z-10">
+          <span class="font-display font-medium text-5xl md:text-6xl tracking-tight text-white mb-2">
             {show ? stat.value : '0'}
           </span>
-          <span class="font-body text-sm text-foreground/60 mt-3 tracking-wide uppercase">
+          <span class="font-body text-sm text-white/60 font-medium">
             {stat.label}
           </span>
         </div>
         {#if i < 3}
-          <div class="hidden md:block absolute top-1/2 -translate-y-1/2 w-px h-12 bg-border" style="left: {(i + 1) * 25}%"></div>
+          <div class="hidden md:block absolute top-1/2 -translate-y-1/2 w-px h-16 bg-white/10" style="left: {(i + 1) * 25}%"></div>
         {/if}
       {/each}
     </div>

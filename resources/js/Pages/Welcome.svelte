@@ -18,10 +18,10 @@
     <ServicesBento />
     <Pourquoi />
     <Process />
-    <Stats />
-    <Testimonials />
     <TechMarquee />
+    <Testimonials />
     <Faq />
+    <Stats />
     <CtaFooter />
   </main>
 </div>

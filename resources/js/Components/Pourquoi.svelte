@@ -85,13 +85,13 @@
   };
 </script>
 
-<section id="pourquoi" class="relative py-28 md:py-40 bg-background overflow-hidden border-t border-border/10">
+<section id="pourquoi" class="relative py-28 md:py-40 bg-background overflow-hidden border-t border-white/5">
   <div class="max-w-[1400px] mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div class="flex flex-col items-start text-left">
-      <span class="border border-white/10 text-foreground/80 rounded-full px-5 py-2 text-xs bg-white/5 mb-6 font-medium tracking-wide">
+      <span class="border border-white/10 text-white/80 rounded-full px-5 py-2 text-xs bg-white/5 mb-6 font-medium tracking-wide">
         Our Benefits
       </span>
-      <h2 class="font-display text-4xl md:text-5xl lg:text-7xl tracking-tight text-foreground font-semibold">
+      <h2 class="font-display text-4xl md:text-5xl lg:text-7xl tracking-tight text-white font-semibold">
         Why Choose Kodeflow?
       </h2>
     </div>
@@ -119,29 +119,37 @@
       {@const isActive = diff === 0}
       {@const teleport = isTeleporting[i]}
       
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div 
-        class="absolute top-0 w-[90vw] md:w-[450px] h-[500px] md:h-[550px] bg-[#111111] rounded-[32px] p-8 md:p-10 flex flex-col border shadow-2xl ease-[cubic-bezier(0.2,0.8,0.2,1)] {teleport ? 'transition-opacity duration-700' : 'transition-all duration-700'}"
+        class="absolute top-0 w-[90vw] md:w-[450px] h-[500px] md:h-[550px] rounded-[32px] p-8 md:p-10 flex flex-col border shadow-2xl ease-[cubic-bezier(0.2,0.8,0.2,1)] {teleport ? 'transition-opacity duration-700' : 'transition-all duration-700'}"
+        on:click={() => {
+          if (diff === 1) next();
+          if (diff === -1) prev();
+        }}
         style="
           transform: translateX({diff * 88}%) scale({isActive ? 1 : 0.85}) translateY({isActive ? '0px' : '40px'});
           z-index: {zIndices[i]};
           opacity: {Math.abs(diff) > 1 ? 0 : (isActive ? 1 : 0.4)};
-          pointer-events: {isActive ? 'auto' : 'none'};
-          border-color: {isActive ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.02)'};
+          pointer-events: {Math.abs(diff) <= 1 ? 'auto' : 'none'};
+          cursor: {Math.abs(diff) === 1 ? 'pointer' : 'default'};
+          border-color: {isActive ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.03)'};
+          background-color: {isActive ? '#1e1e22' : '#111111'};
         "
       >
         
-        <h3 class="font-display text-3xl font-semibold tracking-tight mb-4 text-foreground/90">
+        <h3 class="font-display text-3xl font-semibold tracking-tight mb-4 text-white/90">
           {reason.title}
         </h3>
         
-        <p class="font-body text-[15px] text-foreground/60 leading-relaxed mb-8">
+        <p class="font-body text-[15px] text-white/60 leading-relaxed mb-8">
           {reason.body}
         </p>
 
         <!-- Impact Box -->
-        <div class="bg-black/50 rounded-2xl p-5 border border-white/5 mb-auto transition-colors">
-          <span class="block font-body text-xs text-foreground/50 mb-1.5 font-medium">Impact:</span>
-          <span class="block font-display text-lg font-medium text-foreground/90">Fokus pada hasil akhir.</span>
+        <div class="bg-white/10 rounded-2xl p-5 border border-white/10 mb-auto transition-colors shadow-inner">
+          <span class="block font-body text-xs text-white/60 mb-1.5 font-medium">Impact:</span>
+          <span class="block font-display text-lg font-medium text-white/90">Fokus pada hasil akhir.</span>
         </div>
 
         <!-- Glass Icon Decoration at Bottom -->

@@ -1,9 +1,10 @@
 <script>
   import { CTA_HEADLINE, CTA_SUB, CTA_LABEL, LANG, FOOTER_LINKS, COPYRIGHT } from "@/lib/constants";
   import { ArrowRight } from "lucide-svelte";
+  import ArrowButton from "./ui/ArrowButton.svelte";
 </script>
 
-<section class="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-32">
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-background pt-56">
   
   <!-- Massive Bottom Eclipse Glow -->
   <div class="absolute -bottom-[500px] left-1/2 -translate-x-1/2 w-[1200px] h-[1000px] rounded-[100%] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.6)_0%,rgba(147,51,234,0.4)_30%,transparent_70%)] opacity-80 pointer-events-none z-0"></div>
@@ -34,37 +35,26 @@
     
     <!-- Action Buttons -->
     <div class="flex items-center gap-4 flex-wrap justify-center">
-      <!-- Primary White Pill Button -->
-      <a href="#" class="inline-flex items-center gap-4 bg-white hover:bg-white/90 text-black rounded-full pl-6 pr-2 py-2 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)]">
-        <span class="font-medium text-sm lg:text-base font-display">Start Growth</span>
-        <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg">
-          <ArrowRight class="size-5" />
-        </div>
-      </a>
+      <!-- Primary Button -->
+      <ArrowButton href="#" text="Start Growth" size="lg" class="shadow-[0_0_40px_rgba(255,255,255,0.2)]" />
       
-      <!-- Secondary Dark Pill Button -->
-      <a href="#" class="inline-flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full pl-6 pr-2 py-2 transition-all backdrop-blur-sm">
-        <span class="font-medium text-sm lg:text-base font-display">Contact us</span>
-        <div class="w-10 h-10 rounded-full bg-white/10 text-white/80 flex items-center justify-center">
-          <ArrowRight class="size-5" />
-        </div>
+      <!-- Secondary Dark Button (No Icon) -->
+      <a href="#" class="inline-flex items-center justify-center h-[64px] px-8 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full transition-all backdrop-blur-sm ring-[6px] ring-white/5 hover:ring-white/10">
+        <span class="font-bold text-lg">Contact us</span>
       </a>
     </div>
   </div>
 
   <!-- New Card Footer Layout -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 mt-24 pb-6">
-    <div class="w-full bg-[#0a0a0a] border border-white/5 rounded-[32px] p-8 md:p-12 lg:p-16 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+    <div class="w-full bg-background/50 backdrop-blur-md border border-white/5 rounded-[32px] p-8 md:p-12 lg:p-16 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
       
       <!-- Top Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         <!-- Logo & Socials -->
         <div class="flex flex-col gap-6">
           <div class="flex items-center gap-2">
-            <div class="size-8 rounded-lg bg-primary flex items-center justify-center">
-              <span class="font-display font-bold text-white text-lg">K</span>
-            </div>
-            <span class="font-display text-2xl font-bold tracking-widest text-white">KODEFLOW</span>
+            <img src="/assets/logopng.png" alt="Kodeflow" class="h-10 w-auto object-contain" />
           </div>
           <div class="flex items-center gap-3">
             <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all shadow-inner">

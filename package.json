@@ -19,6 +19,7 @@
         "@inertiajs/svelte": "^3.0.3",
         "@sveltejs/vite-plugin-svelte": "^7.0.0",
         "clsx": "^2.1.1",
+        "lottie-web": "^5.13.0",
         "lucide-svelte": "^1.0.1",
         "svelte": "^5.55.5",
         "tailwind-merge": "^3.5.0"
