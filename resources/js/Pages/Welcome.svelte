@@ -4,6 +4,7 @@
   import TechMarquee from "../Components/TechMarquee.svelte";
   import ServicesBento from "../Components/ServicesBento.svelte";
   import Pourquoi from "../Components/Pourquoi.svelte";
+  import PortfolioPreview from "../Components/PortfolioPreview.svelte";
   import Process from "../Components/Process.svelte";
   import Stats from "../Components/Stats.svelte";
   import Testimonials from "../Components/Testimonials.svelte";
@@ -17,6 +18,7 @@
     <Hero />
     <ServicesBento />
     <Pourquoi />
+    <PortfolioPreview />
     <Process />
     <TechMarquee />
     <Testimonials />

@@ -37,7 +37,18 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            //
+            'auth' => [
+                'user' => $request->user(),
+            ],
+            'social_links' => \Illuminate\Support\Facades\Cache::rememberForever('social_links', function () {
+                return \App\Models\Setting::whereIn('key', ['whatsapp', 'facebook', 'instagram', 'threads', 'youtube'])
+                    ->pluck('value', 'key')
+                    ->toArray();
+            }),
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'error' => fn () => $request->session()->get('error'),
+            ],
         ];
     }
 }

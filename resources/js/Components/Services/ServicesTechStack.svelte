@@ -1,5 +1,6 @@
 <script>
   import { inview } from "@/lib/utils";
+  import { t } from "@/lib/i18n";
 
   let show = false;
 
@@ -17,15 +18,15 @@
   <div class="max-w-[var(--max)] mx-auto px-[var(--gutter)]">
     
     <div class="inline-block border border-white/10 text-white/90 rounded-full px-5 py-2 text-xs bg-white/5 font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,255,255,0.05)] mb-6">
-      Tech Stack
+      {$t.SERVICES_TECH_BADGE}
     </div>
     
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
       <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white max-w-2xl">
-        Teknologi yang dikuasai tim kami
+        {$t.SERVICES_TECH_TITLE}
       </h2>
       <p class="font-body text-white/50 text-sm md:text-base max-w-xs">
-        Tidak menemukan stack yang Anda butuhkan? Konsultasikan — kemungkinan besar kami bisa bantu.
+        {$t.SERVICES_TECH_DESC}
       </p>
     </div>
 

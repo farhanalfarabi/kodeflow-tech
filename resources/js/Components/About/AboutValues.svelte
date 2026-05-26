@@ -1,37 +1,9 @@
 <script>
   import { inview } from "@/lib/utils";
+  import { t } from "@/lib/i18n";
+  import { Shield } from "lucide-svelte";
 
   let show = false;
-
-  const values = [
-    {
-      num: "01",
-      title: "Built Right",
-      accent: "from-primary/20 to-transparent",
-      border: "hover:border-primary/50",
-      quoteCol: "text-white",
-      desc: "Setiap keputusan teknikal diambil dengan pertimbangan jangka panjang. Kami tidak pernah memilih jalan pintas yang akan menjadi masalah enam bulan kemudian. Arsitektur yang benar, code yang bisa dibaca, dokumentasi yang lengkap.",
-      quote: "Kalau tidak bisa di-maintain, belum selesai."
-    },
-    {
-      num: "02",
-      title: "Built for Users",
-      accent: "from-primary/20 to-transparent",
-      border: "hover:border-primary/50",
-      quoteCol: "text-white",
-      desc: "Produk yang tidak dipakai adalah kegagalan, apapun alasannya. Setiap sistem kami rancang dari sudut pandang orang yang akan menggunakannya setiap hari — bukan dari sudut pandang database atau convenience developer.",
-      quote: "Teknologi ada untuk manusia, bukan sebaliknya."
-    },
-    {
-      num: "03",
-      title: "Built to Last",
-      accent: "from-primary/20 to-transparent",
-      border: "hover:border-primary/50",
-      quoteCol: "text-white",
-      desc: "Ini yang paling membedakan kami. Sistem kami dirancang untuk hidup lama — bisa di-maintain, bisa di-scale, dan bisa berkembang seiring bisnis klien. Dan kami tetap ada untuk memastikan itu terjadi, bukan hanya di hari pertama.",
-      quote: "Kami tidak pergi setelah go-live."
-    }
-  ];
 </script>
 
 <section class="relative py-32 overflow-hidden" use:inview on:enter={() => show = true}>
@@ -42,20 +14,24 @@
     
     <div class="text-center max-w-3xl mx-auto mb-20">
       <div class="flex justify-center mb-6">
-        <span class="inline-block border border-white/10 text-white/90 rounded-full px-5 py-2 text-xs bg-white/5 font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-          Nilai Perusahaan
-        </span>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider shadow-[0_0_15px_rgba(247,37,134,0.1)]">
+          <Shield class="size-3.5 text-primary-light" />
+          <span>{$t.ABOUT_VALUES_BADGE}</span>
+        </div>
       </div>
-      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
-        Tiga prinsip yang tidak pernah kami kompromikan
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white uppercase mb-6">
+        {$t.ABOUT_VALUES_TITLE}
+        <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
+          {$t.ABOUT_VALUES_TITLE_HIGHLIGHT}
+        </span>
       </h2>
       <p class="font-body text-base md:text-lg text-white/50 leading-relaxed">
-        Nilai-nilai ini bukan poster di dinding kantor. Ini adalah filter yang kami gunakan saat menghadapi pilihan sulit — antara cepat atau benar, antara murah atau berkualitas.
+        {$t.ABOUT_VALUES_DESC}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-      {#each values as val, i}
+      {#each $t.ABOUT_VALUES_ITEMS as val, i}
         <div 
           class="relative bg-[#170e20] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] rounded-[32px] p-8 lg:p-10 transition-all duration-500 overflow-hidden"
           style="opacity: {show ? 1 : 0}; transform: translateY({show ? 0 : 30}px); transition-delay: {i * 120}ms;"

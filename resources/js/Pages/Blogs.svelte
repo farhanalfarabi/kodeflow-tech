@@ -4,6 +4,10 @@
   import BlogHero from "../Components/Blog/BlogHero.svelte";
   import BlogGrid from "../Components/Blog/BlogGrid.svelte";
   import BlogCta from "../Components/Blog/BlogCta.svelte";
+
+  export let blogs = {};
+  export let categories = [];
+  export let filters = { search: "", category: "semua" };
 </script>
 
 <svelte:head>
@@ -33,8 +37,8 @@
   <Navbar />
   
   <main>
-    <BlogHero />
-    <BlogGrid />
+    <BlogHero bind:searchQuery={filters.search} {filters} />
+    <BlogGrid {blogs} {categories} bind:activeFilter={filters.category} bind:searchQuery={filters.search} />
     <BlogCta />
     <CtaFooter />
   </main>

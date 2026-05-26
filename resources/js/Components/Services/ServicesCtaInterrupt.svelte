@@ -2,6 +2,8 @@
   import { ArrowRight } from "lucide-svelte";
   import { inview } from "@/lib/utils";
   import ArrowButton from "../ui/ArrowButton.svelte";
+  import { t } from "@/lib/i18n";
+  import { isLeadModalOpen } from "@/lib/stores";
 
   let show = false;
 </script>
@@ -16,18 +18,18 @@
 
     <div class="relative z-10">
       <h2 class="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4">
-        Belum yakin posisi mana yang paling dibutuhkan tim Anda?
+        {$t.SERVICES_CTA_TITLE}
       </h2>
       <p class="font-body text-base md:text-lg text-black/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Ceritakan kebutuhan bisnis Anda — kami analisis dan rekomendasikan komposisi tim yang paling tepat, tanpa biaya, tanpa komitmen.
+        {$t.SERVICES_CTA_DESC}
       </p>
 
       <div class="inline-block mb-10">
-        <ArrowButton href="https://wa.me/6285733235489?text=Halo,%20saya%20belum%20yakin%20posisi%20IT%20mana%20yang%20dibutuhkan" text="Konsultasikan Kebutuhan Anda" size="lg" target="_blank" variant="solid" />
+        <ArrowButton href="#" on:click={(e) => { e.preventDefault(); isLeadModalOpen.set(true); }} text={$t.SERVICES_CTA_BTN} size="lg" variant="solid" />
       </div>
       
       <div class="mt-4 text-xs font-bold text-black/40 uppercase tracking-widest">
-        ⏱ Respon dalam &lt; 24 jam
+        {$t.SERVICES_CTA_NOTE}
       </div>
     </div>
   </div>

@@ -2,6 +2,8 @@
   import { ArrowRight } from "lucide-svelte";
   import { inview } from "@/lib/utils";
   import ArrowButton from "../ui/ArrowButton.svelte";
+  import { t } from "@/lib/i18n";
+  import { isLeadModalOpen } from "@/lib/stores";
 
   let show = false;
 </script>
@@ -16,24 +18,24 @@
       
       <div class="relative z-10 max-w-2xl text-center md:text-left">
         <h2 class="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
-          Artikel ini relevan dengan bisnis Anda?
+          {$t.BLOG_CTA_TITLE}
         </h2>
         <p class="font-body text-base md:text-lg text-foreground/60 mb-8 leading-relaxed max-w-xl">
-          Mari ngobrol langsung. Konsultasi gratis untuk membahas kebutuhan IT bisnis Anda — tanpa tekanan, tanpa komitmen.
+          {$t.BLOG_CTA_DESC}
         </p>
         <p class="text-xs font-bold text-primary tracking-widest uppercase mb-4 md:mb-0">
-          Sudah dipercaya 5 bisnis yang scaling · Respon &lt; 24 jam
+          {$t.BLOG_CTA_NOTE}
         </p>
       </div>
 
       <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4 shrink-0">
         <a href="/services" class="text-sm font-medium text-foreground/70 hover:text-foreground px-6 py-3 transition-colors order-2 sm:order-1">
-          Lihat Layanan Kami
+          {$t.BLOG_CTA_SERVICES}
         </a>
         <ArrowButton 
-          href="https://wa.me/6285733235489?text=Halo,%20saya%20ingin%20konsultasi%20setelah%20membaca%20blog%20Kodeflow%20Tech" 
-          target="_blank" 
-          text="Konsultasi Gratis" 
+          href="#" 
+          on:click={(e) => { e.preventDefault(); isLeadModalOpen.set(true); }}
+          text={$t.BLOG_CTA_BTN} 
           size="lg" 
           class="order-1 sm:order-2" 
         />

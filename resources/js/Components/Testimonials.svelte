@@ -1,36 +1,40 @@
 <script>
-  import { CASE_STUDIES } from "@/lib/constants";
-  import { Quote, ArrowRight, ArrowLeft } from "lucide-svelte";
+  import { t } from "@/lib/i18n";
+  import { Quote, ArrowRight, ArrowLeft, MessageSquare } from "lucide-svelte";
   
   let currentIndex = 0;
   
   const next = () => {
-    currentIndex = (currentIndex + 1) % CASE_STUDIES.length;
+    currentIndex = (currentIndex + 1) % $t.CASE_STUDIES.length;
   };
   
   const prev = () => {
-    currentIndex = (currentIndex - 1 + CASE_STUDIES.length) % CASE_STUDIES.length;
+    currentIndex = (currentIndex - 1 + $t.CASE_STUDIES.length) % $t.CASE_STUDIES.length;
   };
 
-  $: activeCase = CASE_STUDIES[currentIndex];
+  $: activeCase = $t.CASE_STUDIES[currentIndex];
 
   // Helper untuk menentukan posisi kartu di tumpukan
   const getDiff = (i, current) => {
-     if (current === 0 && i === CASE_STUDIES.length - 1) return -1;
+     if (current === 0 && i === $t.CASE_STUDIES.length - 1) return -1;
      if (i === current - 1) return -1;
      
-     let diff = (i - current) % CASE_STUDIES.length;
-     return ((diff % CASE_STUDIES.length) + CASE_STUDIES.length) % CASE_STUDIES.length;
+     let diff = (i - current) % $t.CASE_STUDIES.length;
+     return ((diff % $t.CASE_STUDIES.length) + $t.CASE_STUDIES.length) % $t.CASE_STUDIES.length;
   }
 </script>
 
 <section id="testimonials" class="relative py-28 md:py-40 bg-white overflow-hidden border-t border-black/5">
   <div class="max-w-[1400px] mx-auto px-6 flex flex-col items-center text-center mb-20">
-    <span class="border border-black/10 text-black/80 rounded-full px-5 py-2 text-xs bg-black/5 mb-6 font-medium tracking-wide">
-      Case Studies
-    </span>
-    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-black font-semibold max-w-[15ch]">
-      Bukti Nyata Kinerja Kami.
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider mb-6">
+      <MessageSquare class="size-3.5 text-primary-light" />
+      <span>{$t.TESTIMONIALS_BADGE}</span>
+    </div>
+    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black uppercase leading-tight max-w-[15ch]">
+      {$t.TESTIMONIALS_HEADING}
+      <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
+        {$t.TESTIMONIALS_HEADING_HIGHLIGHT}
+      </span>
     </h2>
   </div>
 
@@ -55,7 +59,7 @@
       
       <!-- Card Stack Inside Envelope -->
       <div class="absolute inset-x-0 bottom-[150px] top-0 flex flex-col items-center justify-end z-10 perspective-1000">
-        {#each CASE_STUDIES as c, i}
+        {#each $t.CASE_STUDIES as c, i}
           {@const diff = getDiff(i, currentIndex)}
           
           <div 
@@ -81,11 +85,11 @@
             
             <!-- Challenge & Solution -->
             <div class="mb-5">
-              <span class="block text-xs font-semibold text-black/40 mb-2 uppercase tracking-wider">Tantangan:</span>
+              <span class="block text-xs font-semibold text-black/40 mb-2 uppercase tracking-wider">{$t.TESTIMONIALS_CHALLENGE}</span>
               <p class="text-[13px] text-black/80 leading-relaxed font-body">{c.challenge}</p>
             </div>
             <div>
-              <span class="block text-xs font-semibold text-primary/80 mb-2 uppercase tracking-wider">Solusi:</span>
+              <span class="block text-xs font-semibold text-primary/80 mb-2 uppercase tracking-wider">{$t.TESTIMONIALS_SOLUTION}</span>
               <p class="text-[13px] text-black/80 leading-relaxed font-body">{c.solution}</p>
             </div>
           </div>

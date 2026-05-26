@@ -104,7 +104,7 @@ export const CTA_HREF = "https://wa.me/6285733235489";
 
 export const FOOTER_LINKS = [
   { label: "About Us", href: "/about" },
-  { label: "Projects", href: "/projects" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy" }
@@ -114,5 +114,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Blogs", href: "/blogs" }
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/contact" }
 ];

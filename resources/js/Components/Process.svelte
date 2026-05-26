@@ -1,7 +1,9 @@
 <script>
-  import { PROCESS_STEPS, CTA_HEADLINE, CTA_SUB, CTA_LABEL, CTA_HREF, LANG } from "@/lib/constants";
+  import { CTA_HREF } from "@/lib/constants";
+  import { t } from "@/lib/i18n";
   import { onMount } from "svelte";
-  import { ArrowRight } from "lucide-svelte";
+  import { ArrowRight, Workflow } from "lucide-svelte";
+  import { isLeadModalOpen } from "@/lib/stores";
   
   let sectionRef;
   let scrollProgress = 0;
@@ -37,20 +39,15 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<!-- Mengurangi tinggi dari 400vh ke 300vh agar terasa lebih cepat dan pas -->
 <section bind:this={sectionRef} id="processus" class="relative h-[300vh] bg-background">
   <div class="sticky top-0 h-screen w-full flex flex-col justify-start overflow-hidden border-t border-border/10 pt-24 md:pt-32">
+    <!-- Sticky-wise ambient background glows for deep purple/pink futuristic depth -->
+    <div class="absolute top-[10%] right-[5%] w-[600px] h-[600px] bg-primary-light/4 rounded-full blur-[140px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-[10%] left-[5%] w-[700px] h-[700px] bg-primary/8 rounded-full blur-[160px] pointer-events-none z-0"></div>
     
     <!-- Horizontal Scroll Area -->
     <div class="relative w-full h-[600px] flex items-center mt-8">
       
-      <!-- Dekorasi Garis Tengah (Sumbu Axis) -->
-      <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block z-0">
-        <div class="w-full h-32 bg-gradient-to-r from-transparent via-primary/30 to-transparent blur-3xl opacity-50"></div>
-        <div class="w-full h-[2px] bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] shadow-[0_0_20px_rgba(255,255,255,0.6)]"></div>
-        <div class="w-full h-[2px] border-t-[4px] border-dashed border-white/30 mt-1"></div>
-      </div>
-
       <!-- Track yang bergerak ke kiri berdasarkan scrollProgress -->
       <div 
         bind:clientWidth={trackWidth}
@@ -58,32 +55,60 @@
         style="transform: translateX(-{scrollProgress * maxTranslate}px);"
       >
         
+        <!-- Dekorasi Garis Tengah (Sumbu Axis) dipindah ke dalam track agar putus sebelum logo -->
+        <div class="absolute top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block z-0" style="left: -50vw; right: calc(1100px + 8rem);">
+          <div class="w-full h-32 bg-gradient-to-r from-transparent via-primary-light/10 to-transparent blur-3xl opacity-40"></div>
+          <div class="w-full h-[2px] bg-[linear-gradient(90deg,transparent_0%,rgba(247,37,134,0.3)_50%,transparent_100%)] shadow-[0_0_20px_rgba(247,37,134,0.3)]"></div>
+          <div class="w-full h-[2px] border-t-[4px] border-dashed border-white/10 mt-1"></div>
+        </div>
+        
         <!-- Teks Utama sekarang berada di dalam Track agar ikut scroll -->
-        <div class="w-[320px] md:w-[480px] shrink-0 flex flex-col justify-center bg-background/50 backdrop-blur-sm p-6 rounded-3xl -ml-6 border border-transparent">
-          <span class="border border-white/10 text-foreground/80 rounded-full px-5 py-2 text-xs bg-white/5 mb-6 font-medium tracking-wide w-max">
-            How it Works
-          </span>
-          <h2 class="font-display text-4xl md:text-5xl lg:text-[56px] leading-[1.05] tracking-tight text-foreground font-semibold mb-6">
-            Jalur Anda dari Ide hingga Peluncuran
+        <div class="w-[320px] md:w-[480px] shrink-0 flex flex-col justify-center bg-background/40 backdrop-blur-md p-8 rounded-3xl -ml-6 border border-white/5 shadow-xl">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider mb-6 w-max">
+            <Workflow class="size-3.5 text-primary-light" />
+            <span>{$t.PROCESS_BADGE}</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.05] tracking-tight text-foreground uppercase mb-6">
+            {$t.PROCESS_HEADING}
+            <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
+              {$t.PROCESS_HEADING_HIGHLIGHT}
+            </span>
           </h2>
           <p class="font-body text-[15px] text-foreground/60 leading-relaxed max-w-sm">
-            Mengubah prospek dari CRM atau ide konsep Anda menjadi aset digital berkualitas tinggi yang siap mendominasi pasar secara efisien.
+            {$t.PROCESS_DESC}
           </p>
         </div>
 
-        {#each PROCESS_STEPS as step, i}
+        {#each $t.PROCESS_STEPS as step, i}
           <!-- Kartu dengan efek zig-zag ekstrem: Card genap ke atas, ganjil ke bawah -->
-          <div class="w-[320px] md:w-[380px] shrink-0 bg-[#161616] p-8 md:p-10 rounded-[32px] border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col {i % 2 === 0 ? 'lg:-translate-y-36' : 'lg:translate-y-36'} relative z-20">
+          <!-- Ditambahkan class 'group' untuk micro-interactions terkoordinasi dan styling premium -->
+          <div 
+            class="w-[320px] md:w-[380px] shrink-0 p-8 md:p-10 rounded-[32px] border flex flex-col {i % 2 === 0 ? 'lg:-translate-y-36' : 'lg:translate-y-36'} relative z-20 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.02] hover:-translate-y-2 lg:hover:{i % 2 === 0 ? '-translate-y-[152px]' : 'translate-y-[136px]'} backdrop-blur-xl group"
+            style="
+              background: linear-gradient(135deg, rgba(247, 37, 134, 0.04) 0%, rgba(20, 10, 30, 0.85) 60%, rgba(247, 37, 134, 0.01) 100%);
+              border-color: rgba(255, 255, 255, 0.06);
+              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            "
+            on:mouseenter={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(247, 37, 134, 0.3)';
+              e.currentTarget.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(247, 37, 134, 0.08)';
+            }}
+            on:mouseleave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+              e.currentTarget.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.5)';
+            }}
+          >
             
-            <div class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display text-xl font-medium mb-8 text-foreground/80 shadow-inner">
+            <!-- Step Number Bubble - glowing & matching primary fuchsia theme -->
+            <div class="w-14 h-14 rounded-full bg-primary-light/10 border border-primary-light/20 flex items-center justify-center font-display text-xl font-bold mb-8 text-primary-light shadow-[0_0_15px_rgba(247,37,134,0.15)] transition-all duration-500 group-hover:scale-110 group-hover:bg-primary-light/20 group-hover:shadow-[0_0_20px_rgba(247,37,134,0.3)]">
               {step.n.padStart(2, "0")}
             </div>
             
-            <h3 class="font-display text-2xl font-medium tracking-tight mb-4 text-foreground/90">
+            <h3 class="font-display text-2xl font-bold tracking-tight mb-4 text-white group-hover:text-primary-light transition-colors duration-300">
               {step.title}
             </h3>
             
-            <p class="font-body text-[15px] text-foreground/60 leading-relaxed">
+            <p class="font-body text-[15px] text-white/60 leading-relaxed group-hover:text-white/80 transition-colors duration-300">
               {step.body}
             </p>
           </div>
@@ -94,33 +119,39 @@
           
           <!-- Gambar K Raksasa -->
           <div class="hidden lg:flex w-1/2 justify-center relative select-none items-center">
-            <div class="absolute inset-0 bg-primary/30 blur-[120px] rounded-full"></div>
+            <div class="absolute inset-0 bg-primary-light/20 blur-[120px] rounded-full"></div>
             <img 
               src="/assets/k.png" 
               alt="Kodeflow Icon" 
-              class="relative w-[350px] h-auto drop-shadow-[0_20px_50px_rgba(131,25,160,0.8)] z-10 animate-float"
+              class="relative w-[350px] h-auto drop-shadow-[0_20px_50px_rgba(247,37,134,0.5)] z-10 animate-float"
             />
           </div>
 
           <!-- Teks CTA & Tombol -->
           <div class="flex flex-col items-start w-full lg:w-1/2 pr-10">
-            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-display text-lg mb-8 shadow-inner text-foreground/70">
+            <div class="w-12 h-12 rounded-full bg-primary-light/10 border border-primary-light/20 text-primary-light font-bold flex items-center justify-center font-display text-lg mb-8 shadow-[0_0_15px_rgba(247,37,134,0.15)]">
               ?
             </div>
-            <h2 class="font-display text-4xl md:text-5xl lg:text-[56px] leading-[1.05] tracking-tight text-foreground font-semibold mb-6">
-              {CTA_HEADLINE}
+            <h2 class="font-display text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.05] tracking-tight text-foreground uppercase mb-6">
+              {$t.CTA_HEADLINE}
+              <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
+                {$t.CTA_HEADLINE_HIGHLIGHT}
+              </span>
             </h2>
             <p class="font-body text-base lg:text-[17px] text-foreground/60 leading-relaxed max-w-md mb-10">
-              {CTA_SUB}
+              {$t.CTA_SUB}
             </p>
             
             <!-- Tombol Pill seperti di gambar -->
-            <a href={CTA_HREF} class="inline-flex items-center gap-4 bg-white hover:bg-white/90 text-black rounded-full pl-6 pr-2 py-2 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-              <span class="font-medium text-sm lg:text-base">{CTA_LABEL}</span>
-              <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg">
+            <button 
+              on:click={() => isLeadModalOpen.set(true)} 
+              class="inline-flex items-center gap-4 bg-white hover:bg-white/95 text-black rounded-full pl-6 pr-2 py-2 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_30px_rgba(247,37,134,0.35)] hover:scale-[1.03] active:scale-95 group/btn"
+            >
+              <span class="font-semibold text-sm lg:text-base">{$t.CTA_LABEL}</span>
+              <div class="w-10 h-10 rounded-full bg-primary-light text-white flex items-center justify-center shadow-lg transition-colors duration-300 group-hover/btn:bg-primary">
                 <ArrowRight class="size-5" />
               </div>
-            </a>
+            </button>
           </div>
         </div>
         
