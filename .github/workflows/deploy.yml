@@ -1,0 +1,41 @@
+name: Deploy SvelteKit ke Hostinger Subdomain
+
+on:
+  push:
+    branches:
+      - main # Jalan otomatis saat push ke branch main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Mengambil kode dari GitHub
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Dependencies dan Build SvelteKit
+      run: |
+        npm ci
+        npm run build
+
+    - name: Deploy ke Hostinger via SSH
+      uses: easingthemes/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+        ARGS: "-rlgoDIVz --delete"
+        REMOTE_HOST: ${{ secrets.SSH_HOST }}
+        REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+        REMOTE_PORT: ${{ secrets.SSH_PORT }}
+        
+        # SOURCE: Jika Anda menggunakan adapter-static di SvelteKit, hasilnya ada di folder 'build'
+        # Jika menggunakan adapter-node, sesuaikan dengan folder output Anda.
+        SOURCE: "build/" 
+        
+        # TARGET: Jalur folder subdomain Anda di Hostinger
+        TARGET: "/home/u574336825/domains/domainanda.com/public_html/sub-farhan3"
