@@ -1,4 +1,5 @@
 import { writable, derived } from 'svelte/store';
+import { idLegal, enLegal } from './legalTexts';
 
 // Set up the current language store (defaulting to Indonesian)
 export const currentLanguage = writable('id');
@@ -352,6 +353,7 @@ export const translations = {
     LEGAL_TITLE: "Legalitas & Perizinan Resmi ",
     LEGAL_TITLE_HIGHLIGHT: "Perusahaan",
     LEGAL_DESC: "Kodeflow Digital Indonesia merupakan perusahaan yang telah terdaftar secara resmi dan memiliki legalitas usaha yang sah di Indonesia. Kami berkomitmen menjalankan setiap layanan dan operasional bisnis secara profesional, transparan, dan sesuai dengan regulasi yang berlaku.\n\nLegalitas ini menjadi bentuk komitmen kami dalam membangun kepercayaan, menjaga kredibilitas perusahaan, serta memberikan rasa aman bagi setiap klien dan partner yang bekerja sama dengan kami.",
+    LEGAL_PAGES: idLegal
   },
   en: {
     BRAND_NAME: "Kodeflow",
@@ -700,6 +702,7 @@ export const translations = {
     LEGAL_TITLE: "Official Legal & Business ",
     LEGAL_TITLE_HIGHLIGHT: "Licensing",
     LEGAL_DESC: "Kodeflow Digital Indonesia is an officially registered company with valid legal business permits in Indonesia. We are committed to running all services and business operations professionally, transparently, and in accordance with current regulations.\n\nThis compliance is our dedication to building trust, maintaining corporate credibility, and providing absolute security for every client and partner collaborating with us.",
+    LEGAL_PAGES: enLegal
   }
 };
 

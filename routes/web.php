@@ -52,6 +52,13 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 });
 
+// Legal Routes
+Route::get('/privacy', function () { return Inertia::render('Legal', ['type' => 'privacy']); });
+Route::get('/terms', function () { return Inertia::render('Legal', ['type' => 'terms']); });
+Route::get('/partner', function () { return Inertia::render('Legal', ['type' => 'partner']); });
+Route::get('/sla', function () { return Inertia::render('Legal', ['type' => 'sla']); });
+Route::get('/dpa', function () { return Inertia::render('Legal', ['type' => 'dpa']); });
+
 Route::get('/portfolio/{slug}', function ($slug) {
     $portfolio = Portfolio::with('category')->published()->where('slug', $slug)->firstOrFail();
     
