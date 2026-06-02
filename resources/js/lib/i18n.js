@@ -209,11 +209,21 @@ export const translations = {
     ABOUT_TEAM_BADGE: "Tim Kami",
     ABOUT_TEAM_TITLE: "Orang-orang di Balik <br/>",
     ABOUT_TEAM_TITLE_HIGHLIGHT: "Kodeflow Tech",
-    ABOUT_TEAM_ITEMS: [
-      { name: "Salman", role: "CEO / Founder", image: "/assets/team/tomi-removebg-preview.png" },
-      { name: "Bagus", role: "Lead Engineer", image: "/assets/team/bagus-removebg-preview.png" },
-      { name: "Maulana", role: "UI/UX Designer", image: "/assets/team/maul-removebg-preview.png" },
-      { name: "Tomi", role: "Fullstack Developer", image: "/assets/team/tomi-removebg-preview.png" }
+    ABOUT_FOUNDERS_TITLE: "CO - Founder",
+    ABOUT_FOUNDERS: [
+      { name: "Founder Name", role: "Founder", image: "/assets/teams/ribhi.png" },
+      { name: "Co-Founder Name", role: "CO Founder", image: "/assets/teams/tomi.png" }
+    ],
+    ABOUT_SUPERVISORS_TITLE: "Supervisor",
+    ABOUT_SUPERVISORS: [
+      { name: "Muhammad Fayi", role: "UI/UX Designer", image: "/assets/teams/fayi.png" },
+      { name: "Maulana", role: "Security and Network", image: "/assets/teams/maul.png" },
+      { name: "Rafikhul Akhiroh", role: "Mobile Dev", image: "/assets/teams/rafi.png" },
+      { name: "Muhammad Rafif", role: "Project Manager", image: "/assets/teams/rafif.png" },
+      { name: "Farhan Alfaraby", role: "Front End", image: "/assets/teams/farhan.png" },
+      { name: "Rodhi", role: "AI Automation", image: "/assets/teams/rodhi.png" },
+      { name: "Muhammad Murthado", role: "Back End", image: "/assets/teams/tado.png" },
+      { name: "Muhammad Taufik", role: "Dev Ops", image: "/assets/teams/taufik.png" }
     ],
 
     // SERVICES PAGE
@@ -264,18 +274,20 @@ export const translations = {
     ],
 
     SERVICES_PROCESS_BADGE: "Proses Bergabung",
-    SERVICES_PROCESS_TITLE: "Dari percakapan pertama ke tim yang ",
-    SERVICES_PROCESS_TITLE_HIGHLIGHT: "produktif — dalam 2 minggu",
+    SERVICES_PROCESS_TITLE: "Dari awal Sampai Tim Berjalan — ",
+    SERVICES_PROCESS_TITLE_HIGHLIGHT: "7 Langkah Sederhana.",
     SERVICES_PROCESS_DESC: "Tidak ada proses yang berbelit. Tidak ada biaya tersembunyi. Setiap langkah punya output yang jelas dan timeline yang realistis.",
     SERVICES_PROCESS_OUTPUT_LABEL: "Output Langkah Ini",
     SERVICES_PROCESS_PREV: "Sebelumnya",
     SERVICES_PROCESS_NEXT: "Selanjutnya",
     SERVICES_PROCESS_STEPS: [
-      { title: "Konsultasi Gratis", time: "Respon dalam < 24 jam", desc: "Ceritakan kebutuhan IT Anda. Kami fasilitasi sesi konsultasi untuk memahami:\n• Posisi yang dibutuhkan dan berapa orangnya\n• Tech stack dan sistem yang akan digunakan\n• Durasi dan model kontrak yang diinginkan\n• Cara kerja dan ritme kolaborasi tim Anda", output: "Pemahaman kebutuhan yang jelas + rekomendasi awal komposisi tim" },
-      { title: "Proposal Tim", time: "Proposal siap dalam 1–2 hari kerja", desc: "Kami siapkan proposal yang mencakup:\n• Komposisi tim yang direkomendasikan beserta profil skill\n• Estimasi timeline onboarding per posisi\n• Detail SLA: jam kerja, response time, mekanisme laporan\n• Ketentuan kontrak dan opsi trial period", output: "Proposal tim lengkap + draft kontrak untuk direview" },
-      { title: "PKS & NDA", time: "Proses tanda tangan 1–3 hari kerja", desc: "Dokumen yang ditandatangani:\n• Perjanjian Kerja Sama (PKS) antara PT Kodeflow Digital Indonesia dan perusahaan Anda\n• NDA (Non-Disclosure Agreement) untuk kerahasiaan data\n• SLA tertulis yang mengikat kedua pihak", output: "Kontrak resmi yang melindungi kedua belah pihak. Tidak ada deposit." },
-      { title: "Onboarding & Setup", time: "3–7 hari kerja", desc: "Proses onboarding mencakup:\n• Tim mendapat akses ke sistem, repository, dan tools Anda\n• Anda diundang ke Kodeflow PM sebagai observer\n• Kickoff meeting untuk alignment tujuan, cara kerja\n• Setup komunikasi harian (Slack/Discord/Meet)", output: "Tim siap, sistem terkoneksi, komunikasi berjalan" },
-      { title: "Tim Mulai Bekerja", time: "Mulai aktif bekerja dari hari pertama", desc: "Setelah onboarding selesai:\n• Developer bekerja dari kantor Kodeflow — termonitor penuh\n• Update status harian tersedia di Kodeflow PM\n• Review mingguan bersama Anda untuk evaluasi progress\n• Komunikasi berjalan terstruktur sesuai SLA", output: "Tim produktif, progress transparan, Anda bisa fokus ke bisnis" }
+      { title: "Konsultasi Gratis", time: "Langkah 1", desc: "Ceritakan kebutuhan IT Anda. Kami analisis dan rekomendasikan komposisi tim yang tepat.", output: "Analisis Kebutuhan & Rekomendasi" },
+      { title: "Proposal Tim", time: "Langkah 2", desc: "Kami siapkan proposal komposisi tim, detail skill, dan estimasi timeline dalam 1-2 hari kerja.", output: "Proposal Tim & Estimasi Timeline" },
+      { title: "Penandatanganan PKS", time: "Langkah 3", desc: "Kontrak, NDA, dan SLA ditandatangani. Tidak ada deposit. Tidak ada biaya di muka.", output: "Dokumen Kontrak & SLA" },
+      { title: "Onboarding & Setup", time: "Langkah 4", desc: "Tim mendapat akses sistem Anda. Diundang ke Kodeflow PM. Kickoff meeting dilakukan.", output: "Sistem Terkoneksi & Kickoff Selesai" },
+      { title: "Tim Mulai Bekerja", time: "Langkah 5", desc: "Developer bekerja dari kantor Kodeflow, termonitor penuh. Update harian di Kodeflow PM.", output: "Progress Harian Termonitor" },
+      { title: "Review Mingguan", time: "Langkah 6", desc: "Meeting singkat setiap minggu untuk evaluasi progress dan sprint planning bersama klien.", output: "Evaluasi Progress & Sprint Baru" },
+      { title: "Pembayaran Akhir Bulan", time: "Langkah 7", desc: "Invoice dikirim di akhir bulan. Bayar setelah tim bekerja. Tidak ada deposit awal.", output: "Invoice Bulanan" }
     ],
 
     SERVICES_TECH_BADGE: "Tech Stack",
@@ -556,11 +568,22 @@ export const translations = {
     ABOUT_TEAM_BADGE: "Our Team",
     ABOUT_TEAM_TITLE: "The People Behind <br/>",
     ABOUT_TEAM_TITLE_HIGHLIGHT: "Kodeflow Tech",
-    ABOUT_TEAM_ITEMS: [
-      { name: "Salman", role: "CEO / Founder", image: "/assets/team/tomi-removebg-preview.png" },
-      { name: "Bagus", role: "Lead Engineer", image: "/assets/team/bagus-removebg-preview.png" },
-      { name: "Maulana", role: "UI/UX Designer", image: "/assets/team/maul-removebg-preview.png" },
-      { name: "Tomi", role: "Fullstack Developer", image: "/assets/team/tomi-removebg-preview.png" }
+    ABOUT_FOUNDERS_TITLE: "CO - Founder",
+    ABOUT_FOUNDERS: [
+      { name: "Founder Name", role: "Founder", image: "/assets/teams/farhan.png" },
+      { name: "Co-Founder Name", role: "CO Founder", image: "/assets/teams/tomi.png" }
+    ],
+    ABOUT_SUPERVISORS_TITLE: "Supervisor",
+    ABOUT_SUPERVISORS: [
+      { name: "Muhammad Fayi", role: "UI/UX", image: "/assets/teams/fayi.png" },
+      { name: "Maulana", role: "Front End", image: "/assets/teams/maul.png" },
+      { name: "Rafi", role: "Back End", image: "/assets/teams/rafi.png" },
+      { name: "Rafif", role: "Dev Ops", image: "/assets/teams/rafif.png" },
+      { name: "Ribhi", role: "Kodeflow Team", image: "/assets/teams/ribhi.png" },
+      { name: "Farhan", role: "Kodeflow Team", image: "/assets/teams/farhan.png" },
+      { name: "Rodhi", role: "Kodeflow Team", image: "/assets/teams/rodhi.png" },
+      { name: "Tado", role: "Kodeflow Team", image: "/assets/teams/tado.png" },
+      { name: "Taufik", role: "Kodeflow Team", image: "/assets/teams/taufik.png" }
     ],
 
     // SERVICES PAGE
@@ -611,18 +634,20 @@ export const translations = {
     ],
 
     SERVICES_PROCESS_BADGE: "Onboarding Process",
-    SERVICES_PROCESS_TITLE: "From the first conversation to a ",
-    SERVICES_PROCESS_TITLE_HIGHLIGHT: "productive team — in 2 weeks",
+    SERVICES_PROCESS_TITLE: "From Consultation to Running Team — ",
+    SERVICES_PROCESS_TITLE_HIGHLIGHT: "7 Simple Steps.",
     SERVICES_PROCESS_DESC: "No convoluted processes. No hidden fees. Every step has a clear output and a realistic timeline.",
     SERVICES_PROCESS_OUTPUT_LABEL: "Step Output",
     SERVICES_PROCESS_PREV: "Previous",
     SERVICES_PROCESS_NEXT: "Next",
     SERVICES_PROCESS_STEPS: [
-      { title: "Free Consultation", time: "Response < 24 hours", desc: "Tell us your IT needs. We facilitate a consultation session to understand:\n• Roles required and team size\n• Tech stack and target systems\n• Desired contract duration and model\n• Your team's workflow and rhythm", output: "Clear understanding of needs + initial team composition recommendation" },
-      { title: "Team Proposal", time: "Ready in 1–2 business days", desc: "We prepare a proposal that includes:\n• Recommended team composition with skill profiles\n• Estimated onboarding timeline per role\n• SLA details: working hours, response time, reporting mechanism\n• Contract terms and trial period options", output: "Complete team proposal + draft contract for review" },
-      { title: "Agreement & NDA", time: "Signing takes 1–3 business days", desc: "Documents to be signed:\n• Cooperation Agreement (PKS) between PT Kodeflow Digital Indonesia and your company\n• NDA (Non-Disclosure Agreement) for data confidentiality\n• Written SLA binding both parties", output: "Official contract protecting both parties. Zero deposit." },
-      { title: "Onboarding & Setup", time: "3–7 business days", desc: "The onboarding process covers:\n• Team access setup to your systems, repositories, and tools\n• You are invited to Kodeflow PM as an observer\n• Kickoff meeting to align goals and workflows\n• Daily communication setup (Slack/Discord/Meet)", output: "Team ready, systems connected, communications flowing" },
-      { title: "Team Starts Working", time: "Active from day one", desc: "Once onboarding is complete:\n• Developers work from Kodeflow's office — fully monitored\n• Daily status updates available in Kodeflow PM\n• Weekly reviews with you for progress evaluation\n• Structured communication adhering to SLA", output: "Productive team, transparent progress, so you can focus on business" }
+      { title: "Free Consultation", time: "Step 1", desc: "Tell us your IT needs. We will analyze and recommend the right team composition.", output: "Needs Analysis & Recommendation" },
+      { title: "Team Proposal", time: "Step 2", desc: "We prepare a team composition proposal, skill details, and timeline estimation within 1-2 working days.", output: "Team Proposal & Timeline Estimation" },
+      { title: "Agreement Signing", time: "Step 3", desc: "Contract, NDA, and SLA signed. No deposit. No upfront costs.", output: "Official Contract & SLA" },
+      { title: "Onboarding & Setup", time: "Step 4", desc: "The team gets access to your system. Invited to Kodeflow PM. Kickoff meeting conducted.", output: "System Connected & Kickoff Completed" },
+      { title: "Team Starts Working", time: "Step 5", desc: "Developers work from Kodeflow office, fully monitored. Daily updates on Kodeflow PM.", output: "Daily Monitored Progress" },
+      { title: "Weekly Review", time: "Step 6", desc: "Short weekly meetings to evaluate progress and sprint planning with clients.", output: "Progress Evaluation & New Sprint" },
+      { title: "End of Month Payment", time: "Step 7", desc: "Invoice sent at the end of the month. Pay after the team works. No initial deposit.", output: "Monthly Invoice" }
     ],
 
     SERVICES_TECH_BADGE: "Tech Stack",

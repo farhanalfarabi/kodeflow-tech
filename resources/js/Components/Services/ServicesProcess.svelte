@@ -16,7 +16,7 @@
     let doneScrolling = false;
     let windowHeight = 800; // default fallback
 
-    const STEP_SCROLL_PX = 600; // pixels of scroll per step
+    const STEP_SCROLL_PX = 400; // pixels of scroll per step
 
     function handleScroll() {
         if (!triggerEl) return;
@@ -94,30 +94,6 @@
 <svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth} />
 
 <div class="bg-white">
-    <!-- Static Intro Section -->
-    <section class="pt-16 md:pt-24 pb-8 md:pb-12" use:inview on:enter={() => (show = true)}>
-        <div class="max-w-[var(--max)] mx-auto px-[var(--gutter)] relative z-10 w-full">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider mb-6 shadow-[0_4px_15px_rgba(var(--primary),0.05)]"
-            >
-                <Workflow class="size-3.5 text-primary-light" />
-                <span>{$t.SERVICES_PROCESS_BADGE}</span>
-            </div>
-
-            <h2
-                class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 uppercase leading-tight mb-4"
-            >
-                {$t.SERVICES_PROCESS_TITLE}
-                <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
-                    {$t.SERVICES_PROCESS_TITLE_HIGHLIGHT}
-                </span>
-            </h2>
-            <p class="font-body text-slate-600 text-lg max-w-3xl">
-                {$t.SERVICES_PROCESS_DESC}
-            </p>
-        </div>
-    </section>
-
     <!-- Scroll spacer: this div provides the scrollable height -->
     <div
         bind:this={triggerEl}
@@ -126,9 +102,31 @@
     >
         <!-- The visual content: perfectly transitions between absolute top, fixed, and absolute bottom -->
         <div
-            class="w-full bg-white z-30 flex flex-col justify-center {isMobile ? 'relative py-12' : (pinned ? 'fixed top-0 left-0 right-0' : 'absolute left-0 right-0')}"
+            class="w-full bg-white z-30 flex flex-col justify-center {isMobile ? 'relative pt-16 pb-12' : (pinned ? 'fixed top-0 left-0 right-0' : 'absolute left-0 right-0')}"
             style={isMobile ? "" : `height: ${windowHeight}px; ${(!pinned && doneScrolling) ? 'bottom: 0;' : (!pinned && !doneScrolling) ? 'top: 0;' : ''}`}
         >
+            <!-- Intro Section (Now pinned together with the steps) -->
+            <div class="max-w-[var(--max)] mx-auto px-[var(--gutter)] relative z-10 w-full pb-8 md:pb-12" use:inview on:enter={() => (show = true)}>
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider mb-6 shadow-[0_4px_15px_rgba(var(--primary),0.05)]"
+                >
+                    <Workflow class="size-3.5 text-primary-light" />
+                    <span>{$t.SERVICES_PROCESS_BADGE}</span>
+                </div>
+
+                <h2
+                    class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 uppercase leading-tight mb-4"
+                >
+                    {$t.SERVICES_PROCESS_TITLE}
+                    <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
+                        {$t.SERVICES_PROCESS_TITLE_HIGHLIGHT}
+                    </span>
+                </h2>
+                <p class="font-body text-slate-600 text-lg max-w-3xl">
+                    {$t.SERVICES_PROCESS_DESC}
+                </p>
+            </div>
+
             <div class="max-w-[var(--max)] mx-auto px-[var(--gutter)] relative z-10 w-full">
                 
                 <!-- Horizontal Timeline Navigation (Desktop) -->
@@ -142,7 +140,7 @@
                     ></div>
                     <!-- Active progress line -->
                     <div
-                        class="absolute top-5 left-0 h-px bg-primary -translate-y-1/2 z-0 transition-all duration-500"
+                        class="absolute top-5 left-0 h-px bg-primary -translate-y-1/2 z-0 transition-all duration-300 ease-out"
                         style="width: {steps.length > 1
                             ? (activeStep / (steps.length - 1)) * 100
                             : 0}%"
@@ -191,7 +189,7 @@
                 <!-- Sliding Cards Container -->
                 <div class="relative overflow-hidden rounded-3xl border border-slate-200 shadow-[0_10px_40px_rgba(0,0,0,0.06)] bg-white">
                     <div
-                        class="flex {isMobile ? 'overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden' : 'transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]'}"
+                        class="flex {isMobile ? 'overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden' : 'transition-transform duration-300 ease-out'}"
                         style={isMobile ? "" : `transform: translateX(-${activeStep * 100}%);`}
                         on:scroll={handleHorizontalScroll}
                     >
