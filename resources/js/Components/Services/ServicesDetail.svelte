@@ -31,47 +31,32 @@
 
     const positions = [
         {
-            id: "fe",
+            id: "web",
             icon: LayoutTemplate,
             tech: [
-                "React",
-                "Next.js",
-                "Vue",
-                "Svelte",
-                "TypeScript",
-                "Tailwind",
+                { name: "Node.js", icon: "/assets/techs/web/pngegg 1.png" },
+                { name: "React", icon: "/assets/techs/web/React-icon.svg 1.png" },
+                { name: "Svelte", icon: "/assets/techs/web/Svelte_Logo.svg 1.png" },
+                { name: "Golang", icon: "/assets/techs/web/Go_Logo_Blue.svg 1.png" },
+                { name: "Laravel", icon: "/assets/techs/web/Laravel.svg 1.png" }
             ],
             supervisor: {
                 name: "John Doe",
-                role: "Head of Frontend Engineering",
+                role: "Head of Web Engineering",
                 photo: "https://i.pravatar.cc/150?img=11",
                 description:
-                    "Mengawasi dan memastikan standar kualitas frontend, performa aplikasi, dan kesesuaian UI/UX dengan kebutuhan bisnis.",
-            },
-        },
-        {
-            id: "be",
-            icon: Server,
-            tech: [
-                "Laravel",
-                "Node.js",
-                "Golang",
-                "PostgreSQL",
-                "MySQL",
-                "Redis",
-            ],
-            supervisor: {
-                name: "Jane Smith",
-                role: "Head of Backend Engineering",
-                photo: "https://i.pravatar.cc/150?img=5",
-                description:
-                    "Bertanggung jawab atas arsitektur database, keamanan API, dan skalabilitas sistem backend secara keseluruhan.",
+                    "Mengawasi dan memastikan standar kualitas arsitektur frontend dan backend, performa aplikasi, dan kesesuaian dengan kebutuhan bisnis.",
             },
         },
         {
             id: "mob",
             icon: Smartphone,
-            tech: ["Flutter", "React Native", "Kotlin", "Swift"],
+            tech: [
+                { name: "Flutter", icon: "/assets/techs/mobile/flutter.png" },
+                { name: "React Native", icon: "/assets/techs/mobile/react-native.png" },
+                { name: "Swift", icon: "/assets/techs/mobile/swift.png" },
+                { name: "Kotlin", icon: "/assets/techs/mobile/Kotlin.png" }
+            ],
             supervisor: {
                 name: "Michael Johnson",
                 role: "Mobile App Lead",
@@ -83,7 +68,15 @@
         {
             id: "devops",
             icon: Cloud,
-            tech: ["AWS", "GCP", "Docker", "Kubernetes", "CI/CD", "Linux"],
+            tech: [
+                { name: "AWS", icon: "/assets/techs/dev-ops/AWS-Logo-PNG-File 1.png" },
+                { name: "DigitalOcean", icon: "/assets/techs/dev-ops/25231 1.png" },
+                { name: "GitHub Actions", icon: "/assets/techs/dev-ops/Group.png" },
+                { name: "Azure", icon: "/assets/techs/dev-ops/Azure-Logo-PNG-Photo 1.png" },
+                { name: "Jenkins", icon: "/assets/techs/dev-ops/Jenkins_logo.svg 1.png" },
+                { name: "Prometheus", icon: "/assets/techs/dev-ops/Prometheus_software_logo.svg 1.png" },
+                { name: "Google Cloud", icon: "/assets/techs/dev-ops/Google-cloud 1.png" }
+            ],
             supervisor: {
                 name: "David Lee",
                 role: "Lead DevOps",
@@ -95,7 +88,12 @@
         {
             id: "ai",
             icon: Bot,
-            tech: ["LangChain", "n8n", "Flowise", "Mastra", "OpenAI", "Python"],
+            tech: [
+                { name: "Flowise", icon: "/assets/techs/automation/flowise 1.png" },
+                { name: "Mastra", icon: "/assets/techs/automation/mastra 1.png" },
+                { name: "LangChain", icon: "/assets/techs/automation/image 1 (1).png" },
+                { name: "n8n", icon: "/assets/techs/automation/N8n-logo-new.svg 1.png" }
+            ],
             supervisor: {
                 name: "Sarah Connor",
                 role: "AI & Automation Lead",
@@ -107,7 +105,9 @@
         {
             id: "ui",
             icon: PenTool,
-            tech: ["Figma", "Adobe XD", "Prototyping", "User Research"],
+            tech: [
+                { name: "Figma", icon: "/assets/techs/design/Figma-logo.svg 1.png" }
+            ],
             supervisor: {
                 name: "Alex Turner",
                 role: "Head of UI/UX Design",
@@ -120,11 +120,7 @@
             id: "pm",
             icon: ClipboardList,
             tech: [
-                "Kodeflow PM",
-                "Agile/Scrum",
-                "Jira",
-                "Notion",
-                "Google Meet",
+                { name: "Agile Management", icon: "/assets/techs/pm/3967015 1.png" }
             ],
             supervisor: {
                 name: "Rachel Green",
@@ -134,24 +130,7 @@
                     "Menyusun strategi produk, mengatur timeline, dan memastikan setiap fitur dirilis sesuai ekspektasi klien.",
             },
         },
-        {
-            id: "qa",
-            icon: ShieldCheck,
-            tech: [
-                "Manual Testing",
-                "Selenium",
-                "Cypress",
-                "Postman",
-                "Bug Tracking",
-            ],
-            supervisor: {
-                name: "Chris Evans",
-                role: "QA Assurance Lead",
-                photo: "https://i.pravatar.cc/150?img=52",
-                description:
-                    "Melakukan pengujian kualitas secara menyeluruh untuk memastikan tidak ada bug yang masuk ke production.",
-            },
-        },
+
     ];
 
     $: activeFilterId =
@@ -256,12 +235,18 @@
                         {$t.SERVICES_POSITIONS[pos.id].desc}
                     </p>
 
-                    <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-3 mb-8 {typeof pos.tech[0] === 'object' ? 'justify-end mt-4' : 'gap-y-2 gap-x-2'}">
                         {#each pos.tech as t}
-                            <span
-                                class="text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-primary/[0.03] border border-primary/20 text-primary-light transition-colors hover:bg-primary/10"
-                                >{t}</span
-                            >
+                            {#if typeof t === 'string'}
+                                <span
+                                    class="text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-primary/[0.03] border border-primary/20 text-primary-light transition-colors hover:bg-primary/10"
+                                    >{t}</span
+                                >
+                            {:else}
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center p-2.5 shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-neutral-100 transition-transform hover:scale-110 hover:-translate-y-1 cursor-default" title={t.name}>
+                                    <img src={t.icon} alt={t.name} class="w-full h-full object-contain" />
+                                </div>
+                            {/if}
                         {/each}
                     </div>
 

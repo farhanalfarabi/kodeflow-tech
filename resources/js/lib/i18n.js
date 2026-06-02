@@ -181,7 +181,7 @@ export const translations = {
     ABOUT_STATS_ITEMS: [
       { target: 5, label: "Klien Aktif", sub: "Bisnis yang sedang scaling", isPlus: false },
       { target: 50, label: "IT Professionals", sub: "Siap untuk tim Anda", isPlus: true },
-      { target: 7, label: "Supervisors", sub: "Memantau kualitas kerja", isPlus: false },
+      { target: 8, label: "Supervisors", sub: "Memantau kualitas kerja", isPlus: false },
       { target: 5, label: "Project Managers", sub: "Menjaga proyek on-track", isPlus: false },
       { target: 20, label: "Proyek Selesai", sub: "Dan terus bertambah", isPlus: true }
     ],
@@ -232,14 +232,12 @@ export const translations = {
     SERVICES_DETAIL_CONSULT: "Konsultasi untuk posisi ini",
     SERVICES_DETAIL_FILTERS: ["Semua", "Engineering", "Design", "Operations"],
     SERVICES_POSITIONS: {
-      fe: { title: "Frontend Developer", desc: "Membangun antarmuka web yang cepat, responsif, dan maintainable. Dari landing page hingga aplikasi web kompleks dengan UX yang intuitif.", category: "Engineering" },
-      be: { title: "Backend Developer", desc: "Membangun API, logika bisnis, dan infrastruktur database yang scalable dan aman. Dari REST API sederhana hingga sistem microservices kompleks.", category: "Engineering" },
-      mob: { title: "Mobile Developer", desc: "Membangun aplikasi mobile native atau cross-platform untuk Android dan iOS. Performa optimal, UX intuitif, dan integrasi backend mulus.", category: "Engineering" },
-      devops: { title: "DevOps / Cloud Engineer", desc: "Mengelola infrastruktur cloud, otomasi deployment, dan memastikan sistem berjalan dengan uptime tinggi. CI/CD, monitoring, dan keamanan.", category: "Engineering" },
-      ai: { title: "AI & Automation Engineer", desc: "Membangun sistem AI dan otomasi yang terintegrasi dengan proses bisnis — dari chatbot WhatsApp hingga pipeline otomasi workflow.", category: "Engineering" },
-      ui: { title: "UI/UX Designer", desc: "Merancang pengalaman pengguna yang intuitif dan antarmuka yang indah. Dari riset pengguna hingga high-fidelity prototype siap handover.", category: "Design" },
-      pm: { title: "Project Manager", desc: "Memastikan proyek berjalan on-track, on-budget, dan sesuai ekspektasi. Menggunakan Agile/Scrum dengan transparansi penuh.", category: "Operations" },
-      qa: { title: "Quality Assurance", desc: "Memastikan setiap fitur yang selesai benar-benar berfungsi sesuai ekspektasi — functional testing, edge case, hingga performance testing.", category: "Operations" }
+      web: { title: "Web Developer — Fullstack, Frontend & Backend", desc: "Banyak yang bisa bikin website. Tapi tidak banyak yang membangunnya dengan cara yang benar — dengan framework modern, arsitektur yang bisa di-scale, dan kode yang masih bisa dibaca setahun kemudian. Di situlah tim web developer kami masuk. Tersedia sebagai fullstack, frontend, atau backend — sesuai apa yang benar-benar Anda butuhkan.", category: "Engineering" },
+      mob: { title: "Mobile Developer - Native atau Cross Platform", desc: "Aplikasi mobile bukan sekadar versi kecil dari website. Perlu didesain untuk layar sentuh, koneksi yang tidak stabil, dan pengguna yang tidak sabar. Tim kami paham itu — dan membangun aplikasi Android dan iOS yang terasa cepat, ringan, dan menyenangkan dipakai. Dengan Flutter, React Native, Kotlin, atau Swift — sesuai yang paling masuk akal untuk kebutuhan Anda.", category: "Engineering" },
+      devops: { title: "DevOps / Cloud Engineer", desc: "Aplikasi yang bagus bisa hancur reputasinya dalam satu malam kalau infrastrukturnya tidak solid. Tim DevOps kami memastikan sistem Anda berjalan stabil, aman, dan siap scale — tanpa drama. Deployment otomatis via CI/CD, monitoring real-time, backup terjadwal, dan respons cepat saat ada anomali. Kami bekerja di AWS, GCP, DigitalOcean, hingga VPS custom — dan tidak pernah menyerahkan server dalam kondisi yang tidak bisa dijaga sendiri.", category: "Engineering" },
+      ai: { title: "AI & Automation Engineer", desc: "Pekerjaan berulang yang memakan waktu tim Anda setiap hari — kami otomasi. Chatbot yang paham konteks, workflow yang terhubung ke sistem yang sudah ada, dan integrasi AI yang terasa natural bukan fitur tempelan. Dibangun dengan LangChain, Mastra, n8n, Flowise, dan framework modern lainnya — termasuk integrasi WhatsApp official maupun third-party. Bekerja diam-diam setiap hari, menghemat ratusan jam kerja per bulan.", category: "Engineering" },
+      ui: { title: "UI/UX Designer", desc: "Sistem yang canggih pun tidak ada gunanya kalau pengguna bingung cara memakainya. UI/UX designer kami masuk dari awal — bukan di akhir setelah semua sudah di-coding. Mereka merancang alur yang mengikuti cara berpikir pengguna, bukan cara kerja database. Dari wireframe hingga high-fidelity prototype di Figma, setiap keputusan desain punya alasan yang bisa dijelaskan — bukan sekadar terlihat bagus di mata desainernya.", category: "Design" },
+      pm: { title: "Project Manager", desc: "Proyek IT yang gagal bukan selalu karena developernya kurang pintar — seringkali karena tidak ada yang memastikan semua pihak bicara bahasa yang sama. Project Manager kami adalah jembatan antara kebutuhan bisnis Anda dan eksekusi teknikal tim. Mereka yang menjaga sprint tetap pada jalurnya, memastikan klien selalu tahu progresnya, dan mengangkat hambatan sebelum berkembang menjadi masalah. Bukan koordinator rapat — tapi orang yang memastikan produk benar-benar selesai sesuai ekspektasi.", category: "Operations" }
     },
 
     SERVICES_CTA_TITLE: "Belum yakin posisi mana yang paling dibutuhkan tim Anda?",
@@ -530,7 +528,7 @@ export const translations = {
     ABOUT_STATS_ITEMS: [
       { target: 5, label: "Active Clients", sub: "Scaling businesses", isPlus: false },
       { target: 50, label: "IT Professionals", sub: "Ready for your team", isPlus: true },
-      { target: 7, label: "Supervisors", sub: "Monitoring work quality", isPlus: false },
+      { target: 8, label: "Supervisors", sub: "Monitoring work quality", isPlus: false },
       { target: 5, label: "Project Managers", sub: "Keeping projects on track", isPlus: false },
       { target: 20, label: "Projects Completed", sub: "And counting", isPlus: true }
     ],
@@ -581,14 +579,12 @@ export const translations = {
     SERVICES_DETAIL_CONSULT: "Consult for this role",
     SERVICES_DETAIL_FILTERS: ["All", "Engineering", "Design", "Operations"],
     SERVICES_POSITIONS: {
-      fe: { title: "Frontend Developer", desc: "Build fast, responsive, and maintainable web interfaces. From landing pages to complex web apps with intuitive UX.", category: "Engineering" },
-      be: { title: "Backend Developer", desc: "Build scalable and secure APIs, business logic, and database infrastructures. From simple REST APIs to complex microservices.", category: "Engineering" },
-      mob: { title: "Mobile Developer", desc: "Build native or cross-platform mobile apps for Android and iOS. Optimal performance, intuitive UX, and seamless backend integration.", category: "Engineering" },
-      devops: { title: "DevOps / Cloud Engineer", desc: "Manage cloud infrastructure, deployment automation, and ensure high uptime. CI/CD, monitoring, and security.", category: "Engineering" },
-      ai: { title: "AI & Automation Engineer", desc: "Build AI systems and automation integrated with business processes — from WhatsApp chatbots to workflow automation pipelines.", category: "Engineering" },
-      ui: { title: "UI/UX Designer", desc: "Design intuitive user experiences and beautiful interfaces. From user research to high-fidelity prototypes ready for handover.", category: "Design" },
-      pm: { title: "Project Manager", desc: "Ensure projects stay on-track, on-budget, and meet expectations. Using Agile/Scrum with full transparency.", category: "Operations" },
-      qa: { title: "Quality Assurance", desc: "Ensure every finished feature works exactly as expected — functional testing, edge cases, to performance testing.", category: "Operations" }
+      web: { title: "Web Developer — Fullstack, Frontend & Backend", desc: "Many can build a website. But not many build it the right way — with modern frameworks, scalable architectures, and code that is still readable a year later. That's where our web developer team comes in. Available as fullstack, frontend, or backend — depending on what you really need.", category: "Engineering" },
+      mob: { title: "Mobile Developer - Native or Cross Platform", desc: "A mobile app is not just a smaller version of a website. It needs to be designed for touch screens, unstable connections, and impatient users. Our team understands this — and builds Android and iOS apps that feel fast, lightweight, and delightful to use. With Flutter, React Native, Kotlin, or Swift — whichever makes the most sense for your needs.", category: "Engineering" },
+      devops: { title: "DevOps / Cloud Engineer", desc: "A great application can have its reputation ruined overnight if its infrastructure isn't solid. Our DevOps team ensures your system runs stable, secure, and ready to scale — without drama. Automated deployment via CI/CD, real-time monitoring, scheduled backups, and fast response when anomalies occur. We work with AWS, GCP, DigitalOcean, to custom VPS — and never hand over a server in a condition that cannot be maintained independently.", category: "Engineering" },
+      ai: { title: "AI & Automation Engineer", desc: "The repetitive work that consumes your team's time every day — we automate it. Context-aware chatbots, workflows connected to existing systems, and AI integrations that feel natural instead of bolted-on features. Built with LangChain, Mastra, n8n, Flowise, and other modern frameworks — including official and third-party WhatsApp integrations. Working silently every day, saving hundreds of hours of work per month.", category: "Engineering" },
+      ui: { title: "UI/UX Designer", desc: "Even an advanced system is useless if users are confused about how to use it. Our UI/UX designers come in from the beginning — not at the end after everything is coded. They design flows that follow how users think, not how the database works. From wireframes to high-fidelity prototypes in Figma, every design decision has an explainable reason — not just looking good to the designer's eyes.", category: "Design" },
+      pm: { title: "Project Manager", desc: "Failed IT projects are not always because the developers aren't smart enough — often it's because no one ensures all parties speak the same language. Our Project Managers are the bridge between your business needs and the team's technical execution. They keep sprints on track, ensure clients always know the progress, and remove roadblocks before they escalate into problems. Not just meeting coordinators — but the people who ensure the product is actually finished according to expectations.", category: "Operations" }
     },
 
     SERVICES_CTA_TITLE: "Not sure which roles your team needs most?",

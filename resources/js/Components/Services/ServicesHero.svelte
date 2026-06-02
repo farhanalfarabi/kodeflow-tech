@@ -68,7 +68,7 @@
                 <span class="font-body text-sm text-foreground/50">Klien Aktif</span>
               </div>
               <div>
-                <span class="block font-display text-4xl font-extrabold text-white mb-1">7</span>
+                <span class="block font-display text-4xl font-extrabold text-white mb-1">8</span>
                 <span class="font-body text-sm text-foreground/50">Supervisors</span>
               </div>
               <div>
