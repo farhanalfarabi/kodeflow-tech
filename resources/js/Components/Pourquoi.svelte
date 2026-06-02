@@ -39,21 +39,30 @@
     zIndices = newZIndices;
   }
 
-  // --- Horizontal Scroll & Touch Swipe Logic ---
-  let touchStartX = 0;
-  let touchEndX = 0;
+  // --- Horizontal Scroll, Touch Swipe & Mouse Drag Logic ---
+  let startX = 0;
+  let isDragging = false;
   let wheelAccumulator = 0;
   let isThrottled = false;
 
-  const handleTouchStart = (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+  const handlePointerDown = (e) => {
+    isDragging = true;
+    startX = e.clientX || (e.touches && e.touches[0].screenX);
   };
 
-  const handleTouchEnd = (e) => {
-    touchEndX = e.changedTouches[0].screenX;
+  const handlePointerUp = (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    let endX = e.clientX || (e.changedTouches && e.changedTouches[0].screenX);
     const minSwipeDistance = 50;
-    if (touchEndX < touchStartX - minSwipeDistance) next();
-    if (touchEndX > touchStartX + minSwipeDistance) prev();
+    if (endX < startX - minSwipeDistance) next();
+    if (endX > startX + minSwipeDistance) prev();
+  };
+
+  const handlePointerLeave = (e) => {
+    if (isDragging) {
+      handlePointerUp(e);
+    }
   };
 
   const handleWheel = (e) => {
@@ -123,12 +132,15 @@
     </div>
   </div>
 
-  <!-- Carousel Container (Added Swipe & Wheel events) -->
+  <!-- Carousel Container (Added Swipe, Drag & Wheel events) -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div 
-    class="relative w-full h-[550px] md:h-[600px] flex justify-center mt-16 overflow-hidden md:overflow-visible touch-pan-y"
-    on:touchstart={handleTouchStart}
-    on:touchend={handleTouchEnd}
+    class="relative w-full h-[550px] md:h-[600px] flex justify-center mt-16 overflow-hidden md:overflow-visible touch-pan-y select-none cursor-grab active:cursor-grabbing"
+    on:mousedown={handlePointerDown}
+    on:mouseup={handlePointerUp}
+    on:mouseleave={handlePointerLeave}
+    on:touchstart={handlePointerDown}
+    on:touchend={handlePointerUp}
     on:wheel={handleWheel}
   >
     {#each $t.REASONS as reason, i}

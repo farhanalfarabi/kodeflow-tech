@@ -168,27 +168,27 @@
                         >{$t.FOOTER_LEGAL_TITLE}</span
                     >
                     <a
-                        href="#"
+                        href="/privacy"
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
                         >{$t.FOOTER_PRIVACY}</a
                     >
                     <a
-                        href="#"
+                        href="/terms"
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
                         >{$t.FOOTER_TERMS}</a
                     >
                     <a
-                        href="#"
+                        href="/partner"
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
                         >{$t.FOOTER_PARTNER}</a
                     >
                     <a
-                        href="#"
+                        href="/sla"
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
                         >{$t.FOOTER_SLA}</a
                     >
                     <a
-                        href="#"
+                        href="/dpa"
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
                         >{$t.FOOTER_DPA}</a
                     >
@@ -199,21 +199,13 @@
                     <span class="font-display font-semibold text-white/90 mb-2"
                         >{$t.FOOTER_NAV_TITLE}</span
                     >
+                    {#each $t.FOOTER_LINKS as link}
                     <a
-                        href="#services"
+                        href={link.href}
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
-                        >{$t.FOOTER_FEATURES}</a
+                        >{link.label}</a
                     >
-                    <a
-                        href="#pricing"
-                        class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
-                        >{$t.FOOTER_PRICING}</a
-                    >
-                    <a
-                        href="#about"
-                        class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors"
-                        >{$t.FOOTER_ABOUT}</a
-                    >
+                    {/each}
                 </div>
 
                 <!-- Contact -->
@@ -223,12 +215,12 @@
                     >
                     <span
                         class="font-body text-sm text-white/60 font-medium leading-relaxed"
-                        >Jakarta Raya, Indonesia<br />12190</span
+                        >Pasuruan, Jawa Timur<br />Indonesia</span
                     >
                     <a
-                        href="mailto:hello@kodeflow.id"
+                        href="mailto:admin@kodeflow.id"
                         class="font-body text-sm text-white/60 font-medium hover:text-white transition-colors mt-2"
-                        >hello@kodeflow.id</a
+                        >admin@kodeflow.id</a
                     >
                 </div>
             </div>
@@ -237,12 +229,12 @@
             <div
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4"
             >
-                <span class="font-body text-sm text-white/50"
-                    >© 2026 Kodeflow Corp. All rights reserved</span
+                <span class="font-body text-sm text-white/50 text-center md:text-left"
+                    >© {new Date().getFullYear()} PT Kodeflow Digital Indonesia. All rights reserved.</span
                 >
                 <span
                     class="font-body text-sm text-white/50 flex items-center gap-2"
-                    >Created by Kodeflow</span
+                    >Created by Kodeflow Tech</span
                 >
             </div>
         </div>

@@ -12,7 +12,7 @@
   }
 </script>
 
-<section class="relative py-24 md:py-32" use:inview on:enter={() => show = true}>
+<section class="relative py-24 md:py-32" use:inview={{ threshold: 0.1 }} on:enter={() => show = true}>
   <div class="max-w-4xl mx-auto px-[var(--gutter)] relative z-10">
     
     <div class="text-center mb-16">

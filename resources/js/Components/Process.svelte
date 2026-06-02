@@ -9,28 +9,40 @@
   let scrollProgress = 0;
   
   let trackWidth = 0;
-  let windowWidth = 0;
+  let windowWidth = 1024;
+  
+  $: isMobile = windowWidth < 768;
   
   // Hitung seberapa jauh track harus digeser ke kiri.
   // Maksimum geseran adalah (Lebar Track - Lebar Layar + margin kanan yang aman)
   $: maxTranslate = Math.max(0, trackWidth - windowWidth + (windowWidth > 1024 ? 200 : 50));
   
-  onMount(() => {
-    const handleScroll = () => {
-      if (!sectionRef) return;
-      const rect = sectionRef.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Calculate scroll progress within the sticky section
-      if (rect.top <= 0) {
-        const totalScrollable = rect.height - windowHeight;
-        let progress = Math.abs(rect.top) / totalScrollable;
-        scrollProgress = Math.max(0, Math.min(1, progress));
-      } else {
-        scrollProgress = 0;
-      }
-    };
+  function handleScroll() {
+    if (!sectionRef) return;
+    if (isMobile) {
+      scrollProgress = 0;
+      return;
+    }
+    const rect = sectionRef.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
     
+    // Calculate scroll progress within the sticky section
+    if (rect.top <= 0) {
+      const totalScrollable = rect.height - windowHeight;
+      let progress = Math.abs(rect.top) / totalScrollable;
+      scrollProgress = Math.max(0, Math.min(1, progress));
+    } else {
+      scrollProgress = 0;
+    }
+  }
+
+  $: {
+    if (typeof window !== 'undefined' && sectionRef && isMobile !== undefined) {
+      handleScroll();
+    }
+  }
+
+  onMount(() => {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
@@ -39,20 +51,20 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<section bind:this={sectionRef} id="processus" class="relative h-[300vh] bg-background">
-  <div class="sticky top-0 h-screen w-full flex flex-col justify-start overflow-hidden border-t border-border/10 pt-24 md:pt-32">
+<section bind:this={sectionRef} id="processus" class="relative {isMobile ? '' : 'h-[300vh]'} bg-background">
+  <div class="{isMobile ? 'py-24' : 'sticky top-0 h-screen pt-24 md:pt-32'} w-full flex flex-col justify-start overflow-hidden border-t border-border/10">
     <!-- Sticky-wise ambient background glows for deep purple/pink futuristic depth -->
     <div class="absolute top-[10%] right-[5%] w-[600px] h-[600px] bg-primary-light/4 rounded-full blur-[140px] pointer-events-none z-0"></div>
     <div class="absolute bottom-[10%] left-[5%] w-[700px] h-[700px] bg-primary/8 rounded-full blur-[160px] pointer-events-none z-0"></div>
     
     <!-- Horizontal Scroll Area -->
-    <div class="relative w-full h-[600px] flex items-center mt-8">
+    <div class="relative w-full {isMobile ? 'mt-8' : 'h-[600px] flex items-center mt-8'}">
       
       <!-- Track yang bergerak ke kiri berdasarkan scrollProgress -->
       <div 
         bind:clientWidth={trackWidth}
-        class="flex items-center gap-10 lg:gap-24 absolute left-6 md:left-12 lg:left-[max(3rem,calc((100vw-1400px)/2+1.5rem))] transition-transform duration-75 ease-out z-10 w-max pr-12 lg:pr-32" 
-        style="transform: translateX(-{scrollProgress * maxTranslate}px);"
+        class="flex {isMobile ? 'overflow-x-auto snap-x snap-mandatory px-6 gap-6 pb-12 w-full [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch' : 'items-center gap-10 lg:gap-24 absolute left-6 md:left-12 lg:left-[max(3rem,calc((100vw-1400px)/2+1.5rem))] transition-transform duration-75 ease-out z-10 w-max pr-12 lg:pr-32'}" 
+        style={isMobile ? "" : `transform: translateX(-${scrollProgress * maxTranslate}px);`}
       >
         
         <!-- Dekorasi Garis Tengah (Sumbu Axis) dipindah ke dalam track agar putus sebelum logo -->
@@ -63,18 +75,18 @@
         </div>
         
         <!-- Teks Utama sekarang berada di dalam Track agar ikut scroll -->
-        <div class="w-[320px] md:w-[480px] shrink-0 flex flex-col justify-center bg-background/40 backdrop-blur-md p-8 rounded-3xl -ml-6 border border-white/5 shadow-xl">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider mb-6 w-max">
+        <div class="w-[320px] md:w-[480px] shrink-0 flex flex-col justify-center bg-background/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 shadow-xl {isMobile ? 'snap-center mx-auto' : '-ml-6'}">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary-light uppercase tracking-wider mb-6 w-max {isMobile ? 'mx-auto' : ''}">
             <Workflow class="size-3.5 text-primary-light" />
             <span>{$t.PROCESS_BADGE}</span>
           </div>
-          <h2 class="font-display text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.05] tracking-tight text-foreground uppercase mb-6">
+          <h2 class="font-display text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.05] tracking-tight text-foreground uppercase mb-6 {isMobile ? 'text-center' : ''}">
             {$t.PROCESS_HEADING}
             <span class="text-primary-light italic drop-shadow-[0_0_15px_rgba(247,37,134,0.25)]">
               {$t.PROCESS_HEADING_HIGHLIGHT}
             </span>
           </h2>
-          <p class="font-body text-[15px] text-foreground/60 leading-relaxed max-w-sm">
+          <p class="font-body text-[15px] text-foreground/60 leading-relaxed max-w-sm {isMobile ? 'text-center mx-auto' : ''}">
             {$t.PROCESS_DESC}
           </p>
         </div>
@@ -83,17 +95,19 @@
           <!-- Kartu dengan efek zig-zag ekstrem: Card genap ke atas, ganjil ke bawah -->
           <!-- Ditambahkan class 'group' untuk micro-interactions terkoordinasi dan styling premium -->
           <div 
-            class="w-[320px] md:w-[380px] shrink-0 p-8 md:p-10 rounded-[32px] border flex flex-col {i % 2 === 0 ? 'lg:-translate-y-36' : 'lg:translate-y-36'} relative z-20 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.02] hover:-translate-y-2 lg:hover:{i % 2 === 0 ? '-translate-y-[152px]' : 'translate-y-[136px]'} backdrop-blur-xl group"
+            class="w-[320px] md:w-[380px] shrink-0 p-8 md:p-10 rounded-[32px] border flex flex-col {i % 2 === 0 ? 'lg:-translate-y-36' : 'lg:translate-y-36'} relative z-20 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.02] hover:-translate-y-2 lg:hover:{i % 2 === 0 ? '-translate-y-[152px]' : 'translate-y-[136px]'} backdrop-blur-xl group {isMobile ? 'snap-center' : ''}"
             style="
               background: linear-gradient(135deg, rgba(247, 37, 134, 0.04) 0%, rgba(20, 10, 30, 0.85) 60%, rgba(247, 37, 134, 0.01) 100%);
               border-color: rgba(255, 255, 255, 0.06);
               box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             "
             on:mouseenter={(e) => {
+              if (isMobile) return;
               e.currentTarget.style.borderColor = 'rgba(247, 37, 134, 0.3)';
               e.currentTarget.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(247, 37, 134, 0.08)';
             }}
             on:mouseleave={(e) => {
+              if (isMobile) return;
               e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
               e.currentTarget.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.5)';
             }}
@@ -115,7 +129,7 @@
         {/each}
 
         <!-- FINAL CTA SLIDE DI AKHIR SCROLL -->
-        <div class="w-[90vw] lg:w-[1100px] shrink-0 flex items-center justify-between gap-12 lg:gap-24 pl-10 lg:pl-32 relative z-20">
+        <div class="w-[320px] md:w-[90vw] lg:w-[1100px] shrink-0 flex items-center justify-between gap-12 lg:gap-24 relative z-20 {isMobile ? 'snap-center pl-0 justify-center text-center' : 'pl-10 lg:pl-32'}">
           
           <!-- Gambar K Raksasa -->
           <div class="hidden lg:flex w-1/2 justify-center relative select-none items-center">
@@ -128,7 +142,7 @@
           </div>
 
           <!-- Teks CTA & Tombol -->
-          <div class="flex flex-col items-start w-full lg:w-1/2 pr-10">
+          <div class="flex flex-col w-full lg:w-1/2 {isMobile ? 'items-center pr-0' : 'items-start pr-10'}">
             <div class="w-12 h-12 rounded-full bg-primary-light/10 border border-primary-light/20 text-primary-light font-bold flex items-center justify-center font-display text-lg mb-8 shadow-[0_0_15px_rgba(247,37,134,0.15)]">
               ?
             </div>
@@ -138,7 +152,7 @@
                 {$t.CTA_HEADLINE_HIGHLIGHT}
               </span>
             </h2>
-            <p class="font-body text-base lg:text-[17px] text-foreground/60 leading-relaxed max-w-md mb-10">
+            <p class="font-body text-base lg:text-[17px] text-foreground/60 leading-relaxed max-w-md mb-10 {isMobile ? 'mx-auto' : ''}">
               {$t.CTA_SUB}
             </p>
             

@@ -20,6 +20,11 @@
 
     function handleScroll() {
         if (!triggerEl) return;
+        if (isMobile) {
+            pinned = false;
+            return;
+        }
+
         const rect = triggerEl.getBoundingClientRect();
         const steps = $t.SERVICES_PROCESS_STEPS.length;
         const totalScroll = steps * STEP_SCROLL_PX;
@@ -67,9 +72,26 @@
 
     $: steps = $t.SERVICES_PROCESS_STEPS || [];
     $: totalScrollHeight = steps.length * STEP_SCROLL_PX;
+
+    let windowWidth = 1024;
+    $: isMobile = windowWidth < 768;
+
+    // Reactively update scroll state when changing between mobile/desktop
+    $: if (typeof window !== 'undefined' && triggerEl) {
+        // Trigger a scroll check whenever isMobile changes
+        handleScroll();
+    }
+
+    function handleHorizontalScroll(e) {
+        if (!isMobile) return;
+        const el = e.target;
+        const scrollLeft = el.scrollLeft;
+        const width = el.clientWidth;
+        activeStep = Math.round(scrollLeft / width);
+    }
 </script>
 
-<svelte:window bind:innerHeight={windowHeight} />
+<svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth} />
 
 <div class="bg-white">
     <!-- Static Intro Section -->
@@ -100,12 +122,12 @@
     <div
         bind:this={triggerEl}
         class="relative"
-        style="height: {totalScrollHeight + windowHeight}px;"
+        style={isMobile ? "" : `height: ${totalScrollHeight + windowHeight}px;`}
     >
         <!-- The visual content: perfectly transitions between absolute top, fixed, and absolute bottom -->
         <div
-            class="w-full bg-white z-30 flex flex-col justify-center {pinned ? 'fixed top-0 left-0 right-0' : 'absolute left-0 right-0'}"
-            style="height: {windowHeight}px; {(!pinned && doneScrolling) ? 'bottom: 0;' : (!pinned && !doneScrolling) ? 'top: 0;' : ''}"
+            class="w-full bg-white z-30 flex flex-col justify-center {isMobile ? 'relative py-12' : (pinned ? 'fixed top-0 left-0 right-0' : 'absolute left-0 right-0')}"
+            style={isMobile ? "" : `height: ${windowHeight}px; ${(!pinned && doneScrolling) ? 'bottom: 0;' : (!pinned && !doneScrolling) ? 'top: 0;' : ''}`}
         >
             <div class="max-w-[var(--max)] mx-auto px-[var(--gutter)] relative z-10 w-full">
                 
@@ -169,11 +191,12 @@
                 <!-- Sliding Cards Container -->
                 <div class="relative overflow-hidden rounded-3xl border border-slate-200 shadow-[0_10px_40px_rgba(0,0,0,0.06)] bg-white">
                     <div
-                        class="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                        style="transform: translateX(-{activeStep * 100}%);"
+                        class="flex {isMobile ? 'overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden' : 'transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]'}"
+                        style={isMobile ? "" : `transform: translateX(-${activeStep * 100}%);`}
+                        on:scroll={handleHorizontalScroll}
                     >
                         {#each steps as step, i}
-                            <div class="w-full shrink-0 p-8 md:p-12 relative flex flex-col justify-center min-h-[420px]">
+                            <div class="w-full shrink-0 p-8 md:p-12 relative flex flex-col justify-center min-h-[420px] {isMobile ? 'snap-center' : ''}">
                                 <!-- Decorative large number -->
                                 <span
                                     class="absolute -top-10 -right-10 font-display text-[250px] font-black text-slate-900/[0.03] leading-none select-none pointer-events-none"
