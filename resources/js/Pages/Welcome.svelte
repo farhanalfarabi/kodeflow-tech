@@ -3,6 +3,7 @@
   import Hero from "../Components/Hero.svelte";
   import TechMarquee from "../Components/TechMarquee.svelte";
   import ServicesBento from "../Components/ServicesBento.svelte";
+  import ServiceCategories from "../Components/ServiceCategories.svelte";
   import Pourquoi from "../Components/Pourquoi.svelte";
   import PortfolioPreview from "../Components/PortfolioPreview.svelte";
   import Process from "../Components/Process.svelte";
@@ -17,6 +18,7 @@
   <main>
     <Hero />
     <ServicesBento />
+    <ServiceCategories />
     <Pourquoi />
     <PortfolioPreview />
     <Process />

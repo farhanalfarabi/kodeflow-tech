@@ -16,12 +16,40 @@ export const translations = {
     HERO_CTA_SECONDARY: "Mengapa Kodeflow?",
     PARTNERS: ["SvelteKit", "React JS", "Supabase", "TailwindCSS", "Node JS"],
     SERVICES: [
-      { icon: "LayoutTemplate", title: "Web Development", body: "Membuat aplikasi web yang powerful untuk Enterprise, Ecommerce, dan Startup." },
-      { icon: "Smartphone", title: "Responsive Design", body: "Tampilan website yang sempurna di semua perangkat dan ukuran layar." },
-      { icon: "Zap", title: "Fast Performance", body: "Dioptimalkan untuk kecepatan pemuatan dan pengalaman pengguna terbaik." },
-      { icon: "Workflow", title: "Workflow Automation", body: "Menyederhanakan proses bisnis Anda menjadi lebih efisien dan otomatis." },
-      { icon: "Unplug", title: "API Integration", body: "Menghubungkan semua tools dan layanan bisnis Anda dengan lancar." },
-      { icon: "Users", title: "Expert Mentorship", body: "Belajar langsung dari profesional industri melalui program mentorship kami." },
+      { icon: "Box", title: "Distributor & Trading", body: "Sistem manajemen inventaris, order otomatis, dan dashboard real-time untuk efisiensi distribusi." },
+      { icon: "Truck", title: "Logistik & Ekspedisi", body: "Tracking pengiriman real-time, manajemen armada, dan portal pelanggan yang transparan." },
+      { icon: "HardHat", title: "Kontraktor & Properti", body: "Sistem manajemen proyek, pelacakan RAB, dan laporan progress otomatis untuk cegah kebocoran budget." },
+      { icon: "Activity", title: "Klinik & Rumah Sakit", body: "Rekam medis digital, sistem antrian pintar, dan billing terintegrasi untuk layanan kesehatan." },
+      { icon: "Coffee", title: "F&B Multi-Outlet", body: "POS terintegrasi, manajemen stok bahan baku, dan laporan multi-cabang dalam satu dashboard." },
+      { icon: "Store", title: "Retail & Toko Bangunan", body: "Manajemen ribuan SKU, sistem POS, dan pelacakan piutang B2B yang akurat." },
+      { icon: "Factory", title: "Manufaktur Skala Menengah", body: "Monitoring produksi, sistem QC, dan pelacakan bahan baku dari awal hingga akhir." },
+      { icon: "GraduationCap", title: "Sekolah & Pendidikan", body: "Sistem informasi sekolah, pembayaran SPP digital, dan portal komunikasi wali murid." },
+    ],
+    APP_CATEGORIES_BADGE: "Layanan Kami",
+    APP_CATEGORIES_TITLE: "Sistem yang Bisa ",
+    APP_CATEGORIES_TITLE_HIGHLIGHT: "Kami Bangun",
+    APP_CATEGORIES_DESC: "Dari landing page sederhana hingga sistem ERP kompleks berskala enterprise, kami siap mewujudkan solusi digital sesuai kebutuhan bisnis Anda.",
+    APP_CATEGORIES: [
+      {
+        icon: "Monitor",
+        title: "Web Apps & Platforms",
+        items: ["Sistem ERP Terintegrasi", "CRM (Customer Relationship Management)", "Dashboard Web App & Analitik", "Platform SaaS Custom"]
+      },
+      {
+        icon: "LayoutTemplate",
+        title: "Websites & Landing Pages",
+        items: ["Company Profile Interaktif", "E-Commerce & Toko Online", "Product Landing Page", "Portal Berita & Media"]
+      },
+      {
+        icon: "Bot",
+        title: "AI & Automation",
+        items: ["AI Chatbot Customer Service", "Workflow Automation (n8n/Make)", "Sistem Data Scraping", "Integrasi AI ke Aplikasi"]
+      },
+      {
+        icon: "PlugZap",
+        title: "API & Integrations",
+        items: ["Integrasi Payment Gateway", "Koneksi API Pihak Ketiga", "Custom Middleware", "Legacy System Bridging"]
+      }
     ],
     REASONS: [
       { icon: "Code", title: "Powerful Web Apps", body: "Kami ahli dalam mengembangkan aplikasi web yang cepat, aman, dan mudah diskalakan menggunakan SvelteKit & Supabase.", impact: "Performa 3x lebih cepat & mudah diskalakan." },
@@ -123,8 +151,8 @@ export const translations = {
     FAQ_CTA: "Punya pertanyaan lain?",
     STATS_TITLE: "Pencapaian",
     SERVICES_BENTO_BADGE: "Main features",
-    SERVICES_BENTO_TITLE: "Tingkatkan ",
-    SERVICES_BENTO_TITLE_HIGHLIGHT: "Bisnis Anda",
+    SERVICES_BENTO_TITLE: "Kami Siap Melayani ",
+    SERVICES_BENTO_TITLE_HIGHLIGHT: "Berbagai Industri",
     SERVICES_BENTO_DESC: "Solusi pengembangan website dan aplikasi cerdas yang membantu mengkualifikasi leads, otomatisasi alur kerja, dan meningkatkan pendapatan Anda secara autopilot.",
     POURQUOI_BADGE: "Keuntungan Kami",
     POURQUOI_TITLE: "Mengapa Memilih ",
@@ -375,12 +403,40 @@ export const translations = {
     HERO_CTA_SECONDARY: "Why Kodeflow?",
     PARTNERS: ["SvelteKit", "React JS", "Supabase", "TailwindCSS", "Node JS"],
     SERVICES: [
-      { icon: "LayoutTemplate", title: "Web Development", body: "Building powerful web applications for Enterprise, Ecommerce, and Startups." },
-      { icon: "Smartphone", title: "Responsive Design", body: "Flawless website display across all devices and screen sizes." },
-      { icon: "Zap", title: "Fast Performance", body: "Optimized for the best loading speed and user experience." },
-      { icon: "Workflow", title: "Workflow Automation", body: "Streamlining your business processes to be more efficient and automated." },
-      { icon: "Unplug", title: "API Integration", body: "Connecting all your business tools and services seamlessly." },
-      { icon: "Users", title: "Expert Mentorship", body: "Learn directly from industry professionals through our mentorship program." },
+      { icon: "Box", title: "Distributor & Trading", body: "Inventory management systems, automated ordering, and real-time dashboards for distribution efficiency." },
+      { icon: "Truck", title: "Logistics & Expedition", body: "Real-time delivery tracking, fleet management, and transparent customer portals." },
+      { icon: "HardHat", title: "Contractors & Property", body: "Project management systems, budget tracking, and automated progress reports to prevent budget leaks." },
+      { icon: "Activity", title: "Clinics & Hospitals", body: "Digital medical records, smart queuing systems, and integrated billing for healthcare services." },
+      { icon: "Coffee", title: "F&B Multi-Outlet", body: "Integrated POS, raw material stock management, and multi-branch reports in a single dashboard." },
+      { icon: "Store", title: "Retail & Hardware Stores", body: "Management of thousands of SKUs, POS systems, and accurate B2B receivables tracking." },
+      { icon: "Factory", title: "Mid-Scale Manufacturing", body: "Production monitoring, QC systems, and raw material tracking from start to finish." },
+      { icon: "GraduationCap", title: "Schools & Education", body: "School information systems, digital tuition payments, and parent communication portals." },
+    ],
+    APP_CATEGORIES_BADGE: "Our Services",
+    APP_CATEGORIES_TITLE: "Systems We Can ",
+    APP_CATEGORIES_TITLE_HIGHLIGHT: "Build",
+    APP_CATEGORIES_DESC: "From simple landing pages to complex enterprise-scale ERP systems, we are ready to build digital solutions tailored to your business needs.",
+    APP_CATEGORIES: [
+      {
+        icon: "Monitor",
+        title: "Web Apps & Platforms",
+        items: ["Integrated ERP Systems", "CRM (Customer Relationship Management)", "Dashboard Web Apps & Analytics", "Custom SaaS Platforms"]
+      },
+      {
+        icon: "LayoutTemplate",
+        title: "Websites & Landing Pages",
+        items: ["Interactive Company Profiles", "E-Commerce & Online Stores", "Product Landing Pages", "News & Media Portals"]
+      },
+      {
+        icon: "Bot",
+        title: "AI & Automation",
+        items: ["AI Customer Service Chatbots", "Workflow Automation (n8n/Make)", "Data Scraping Systems", "AI App Integrations"]
+      },
+      {
+        icon: "PlugZap",
+        title: "API & Integrations",
+        items: ["Payment Gateway Integration", "Third-Party API Connections", "Custom Middleware", "Legacy System Bridging"]
+      }
     ],
     REASONS: [
       { icon: "Code", title: "Powerful Web Apps", body: "We specialize in developing fast, secure, and scalable web applications using SvelteKit & Supabase.", impact: "3x faster & highly scalable performance." },
@@ -482,8 +538,8 @@ export const translations = {
     FAQ_CTA: "Have another question?",
     STATS_TITLE: "Achievements",
     SERVICES_BENTO_BADGE: "Main features",
-    SERVICES_BENTO_TITLE: "Elevate ",
-    SERVICES_BENTO_TITLE_HIGHLIGHT: "Your Business",
+    SERVICES_BENTO_TITLE: "We Are Ready to Serve ",
+    SERVICES_BENTO_TITLE_HIGHLIGHT: "Various Industries",
     SERVICES_BENTO_DESC: "Smart website and app development solutions that help qualify leads, automate workflows, and increase your revenue on autopilot.",
     POURQUOI_BADGE: "Our Benefits",
     POURQUOI_TITLE: "Why Choose ",

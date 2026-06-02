@@ -92,37 +92,25 @@
         </div>
 
         {#each $t.PROCESS_STEPS as step, i}
-          <!-- Kartu dengan efek zig-zag ekstrem: Card genap ke atas, ganjil ke bawah -->
-          <!-- Ditambahkan class 'group' untuk micro-interactions terkoordinasi dan styling premium -->
           <div 
-            class="w-[320px] md:w-[380px] shrink-0 p-8 md:p-10 rounded-[32px] border flex flex-col {i % 2 === 0 ? 'lg:-translate-y-36' : 'lg:translate-y-36'} relative z-20 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.02] hover:-translate-y-2 lg:hover:{i % 2 === 0 ? '-translate-y-[152px]' : 'translate-y-[136px]'} backdrop-blur-xl group {isMobile ? 'snap-center' : ''}"
+            class="w-[320px] md:w-[380px] shrink-0 p-8 md:p-10 rounded-[32px] border flex flex-col {i % 2 === 0 ? 'lg:-translate-y-36' : 'lg:translate-y-36'} relative z-20 backdrop-blur-xl {isMobile ? 'snap-center' : ''}"
             style="
               background: linear-gradient(135deg, rgba(247, 37, 134, 0.04) 0%, rgba(20, 10, 30, 0.85) 60%, rgba(247, 37, 134, 0.01) 100%);
               border-color: rgba(255, 255, 255, 0.06);
               box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             "
-            on:mouseenter={(e) => {
-              if (isMobile) return;
-              e.currentTarget.style.borderColor = 'rgba(247, 37, 134, 0.3)';
-              e.currentTarget.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(247, 37, 134, 0.08)';
-            }}
-            on:mouseleave={(e) => {
-              if (isMobile) return;
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
-              e.currentTarget.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.5)';
-            }}
           >
             
             <!-- Step Number Bubble - glowing & matching primary fuchsia theme -->
-            <div class="w-14 h-14 rounded-full bg-primary-light/10 border border-primary-light/20 flex items-center justify-center font-display text-xl font-bold mb-8 text-primary-light shadow-[0_0_15px_rgba(247,37,134,0.15)] transition-all duration-500 group-hover:scale-110 group-hover:bg-primary-light/20 group-hover:shadow-[0_0_20px_rgba(247,37,134,0.3)]">
+            <div class="w-14 h-14 rounded-full bg-primary-light/10 border border-primary-light/20 flex items-center justify-center font-display text-xl font-bold mb-8 text-primary-light shadow-[0_0_15px_rgba(247,37,134,0.15)]">
               {step.n.padStart(2, "0")}
             </div>
             
-            <h3 class="font-display text-2xl font-bold tracking-tight mb-4 text-white group-hover:text-primary-light transition-colors duration-300">
+            <h3 class="font-display text-2xl font-bold tracking-tight mb-4 text-white">
               {step.title}
             </h3>
             
-            <p class="font-body text-[15px] text-white/60 leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+            <p class="font-body text-[15px] text-white/60 leading-relaxed">
               {step.body}
             </p>
           </div>
