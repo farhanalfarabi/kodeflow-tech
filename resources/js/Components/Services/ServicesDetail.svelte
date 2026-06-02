@@ -41,9 +41,9 @@
                 { name: "Laravel", icon: "/assets/techs/web/Laravel.svg 1.png" }
             ],
             supervisor: {
-                name: "John Doe",
+                name: "Muhammad Murtadho",
                 role: "Head of Web Engineering",
-                photo: "https://i.pravatar.cc/150?img=11",
+                photo: "/assets/teams/tado.png",
                 description:
                     "Mengawasi dan memastikan standar kualitas arsitektur frontend dan backend, performa aplikasi, dan kesesuaian dengan kebutuhan bisnis.",
             },
@@ -58,9 +58,9 @@
                 { name: "Kotlin", icon: "/assets/techs/mobile/Kotlin.png" }
             ],
             supervisor: {
-                name: "Michael Johnson",
+                name: "Rafokhul Akhiroh",
                 role: "Mobile App Lead",
-                photo: "https://i.pravatar.cc/150?img=8",
+                photo: "/assets/teams/rafi.png",
                 description:
                     "Memimpin tim mobile dalam pengembangan aplikasi native dan cross-platform yang efisien dan user-friendly.",
             },
@@ -78,9 +78,9 @@
                 { name: "Google Cloud", icon: "/assets/techs/dev-ops/Google-cloud 1.png" }
             ],
             supervisor: {
-                name: "David Lee",
+                name: "Muhammad Taufiq",
                 role: "Lead DevOps",
-                photo: "https://i.pravatar.cc/150?img=15",
+                photo: "/assets/teams/taufik.png",
                 description:
                     "Mengelola infrastruktur cloud, pipeline deployment, dan memastikan keandalan sistem dengan uptime maksimal.",
             },
@@ -95,9 +95,9 @@
                 { name: "n8n", icon: "/assets/techs/automation/N8n-logo-new.svg 1.png" }
             ],
             supervisor: {
-                name: "Sarah Connor",
+                name: "Muhammad Rodhi",
                 role: "AI & Automation Lead",
-                photo: "https://i.pravatar.cc/150?img=20",
+                photo: "/assets/teams/rodhi.png",
                 description:
                     "Mengarahkan implementasi solusi AI, otomasi workflow, dan integrasi LLM untuk efisiensi bisnis.",
             },
@@ -109,9 +109,9 @@
                 { name: "Figma", icon: "/assets/techs/design/Figma-logo.svg 1.png" }
             ],
             supervisor: {
-                name: "Alex Turner",
+                name: "Muhammad Fayi",
                 role: "Head of UI/UX Design",
-                photo: "https://i.pravatar.cc/150?img=33",
+                photo: "/assets/teams/fayi.png",
                 description:
                     "Menjaga kualitas desain antarmuka, pengalaman pengguna, dan konsistensi design system pada seluruh produk.",
             },
@@ -123,9 +123,9 @@
                 { name: "Agile Management", icon: "/assets/techs/pm/3967015 1.png" }
             ],
             supervisor: {
-                name: "Rachel Green",
+                name: "Muhammad Rafif",
                 role: "Product Management Lead",
-                photo: "https://i.pravatar.cc/150?img=44",
+                photo: "/assets/teams/rafif.png",
                 description:
                     "Menyusun strategi produk, mengatur timeline, dan memastikan setiap fitur dirilis sesuai ekspektasi klien.",
             },
