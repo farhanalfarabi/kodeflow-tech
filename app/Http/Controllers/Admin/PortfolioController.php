@@ -23,10 +23,10 @@ class PortfolioController extends Controller
         if ($request->has('search') && $request->search) {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
-                $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('slug', 'like', "%{$search}%")
+                $q->where('title', 'ilike', "%{$search}%")
+                  ->orWhere('slug', 'ilike', "%{$search}%")
                   ->orWhereHas('category', function($q) use ($search) {
-                      $q->where('name', 'like', "%{$search}%");
+                      $q->where('name', 'ilike', "%{$search}%");
                   });
             });
         }

@@ -19,9 +19,9 @@ class LeadController extends Controller
         if ($request->has('search') && $request->search) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('company_name', 'like', "%{$search}%")
-                  ->orWhere('message', 'like', "%{$search}%");
+                $q->where('name', 'ilike', "%{$search}%")
+                  ->orWhere('company_name', 'ilike', "%{$search}%")
+                  ->orWhere('message', 'ilike', "%{$search}%");
             });
         }
 

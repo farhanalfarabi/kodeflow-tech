@@ -21,7 +21,7 @@ class BlogController extends Controller
 
         if ($request->has('search') && $request->search) {
             $search = $request->search;
-            $query->where('title', 'like', "%{$search}%");
+            $query->where('title', 'ilike', "%{$search}%");
         }
 
         if ($request->has('status') && $request->status && $request->status !== 'all') {

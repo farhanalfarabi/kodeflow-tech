@@ -1,5 +1,12 @@
-import { createInertiaApp } from '@inertiajs/svelte'
+import { createInertiaApp, router } from '@inertiajs/svelte'
 import { mount } from 'svelte'
+
+// Paksa hapus atribut tema light jika pengunjung keluar dari halaman admin
+router.on('navigate', (event) => {
+    if (!window.location.pathname.startsWith('/admin')) {
+        document.documentElement.removeAttribute('data-theme');
+    }
+})
 
 createInertiaApp({
   resolve: name => {

@@ -80,8 +80,8 @@
                     Selamat Datang Kembali
                 </h1>
                 <p class="text-muted-foreground text-lg mb-8 leading-relaxed">
-                    email = test@example.com <br /> password = password
-                    <!-- Akses dashboard admin Anda untuk mengelola konten, layanan, dan analitik secara real-time. -->
+                    Akses dashboard admin Anda untuk mengelola konten, layanan,
+                    dan analitik secara real-time.
                 </p>
             </div>
 
@@ -194,7 +194,9 @@
                                         class="w-5 h-5 rounded border border-white/20 bg-black/20 peer-checked:bg-primary peer-checked:border-primary transition-colors flex items-center justify-center"
                                     >
                                         <svg
-                                            class="w-3.5 h-3.5 text-primary-foreground transition-opacity {form.remember ? 'opacity-100' : 'opacity-0'}"
+                                            class="w-3.5 h-3.5 text-primary-foreground transition-opacity {form.remember
+                                                ? 'opacity-100'
+                                                : 'opacity-0'}"
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24"
                                             fill="none"

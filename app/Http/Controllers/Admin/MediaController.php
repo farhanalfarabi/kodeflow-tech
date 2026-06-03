@@ -16,7 +16,7 @@ class MediaController extends Controller
 
         if ($request->has('search') && $request->search) {
             $search = $request->search;
-            $query->where('name', 'like', "%{$search}%");
+            $query->where('name', 'ilike', "%{$search}%");
         }
 
         // Paginate for main page, but we can also load all for API or paginate.

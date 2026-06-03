@@ -5,22 +5,22 @@
     import LottiePlayer from "./ui/LottiePlayer.svelte";
 
     const LOTTIE_URLS = [
-        // 0: Distributor & Trading (API Integration)
-        "https://cdn.prod.website-files.com/690b5a39d269efd72421ec15/699f223d78724cb1ec19e035_04.json",
-        // 1: Logistik & Ekspedisi (Fast Performance)
-        "https://cdn.prod.website-files.com/690b5a39d269efd72421ec15/699f223d66a26c53542f7de9_03.json",
-        // 2: Kontraktor & Properti (Workflow Automation)
-        "https://cdn.prod.website-files.com/690b5a39d269efd72421ec15/699f223d50d87df2a92b7743_53de64471d0a277f8667726a0df311a3_05.json",
-        // 3: Klinik & Rumah Sakit (Systems/Code)
-        "/assets/lottie/programming-code.json",
-        // 4: F&B Multi-Outlet (Graphic Design)
-        "/assets/lottie/graphic-design.json",
-        // 5: Retail & Toko Bangunan (API Integration repeated)
-        "https://cdn.prod.website-files.com/690b5a39d269efd72421ec15/699f223d78724cb1ec19e035_04.json",
-        // 6: Manufaktur Skala Menengah (Workflow Automation repeated)
-        "https://cdn.prod.website-files.com/690b5a39d269efd72421ec15/699f223d50d87df2a92b7743_53de64471d0a277f8667726a0df311a3_05.json",
-        // 7: Sekolah & Pendidikan (Expert Mentorship)
-        "/assets/lottie/leaderku.json",
+        // 0: Distributor & Trading
+        "/assets/lottie/Distributor.json",
+        // 1: Logistik & Ekspedisi
+        "/assets/lottie/Logistik.json",
+        // 2: Kontraktor & Properti
+        "/assets/lottie/Manajemen.json",
+        // 3: Klinik & Rumah Sakit
+        "/assets/lottie/Rumah Sakit.json",
+        // 4: F&B Multi-Outlet
+        "/assets/lottie/F&B.json",
+        // 5: Retail & Toko Bangunan
+        "/assets/lottie/post.json",
+        // 6: Manufaktur Skala Menengah
+        "/assets/lottie/Monitoring.json",
+        // 7: Sekolah & Pendidikan
+        "/assets/lottie/book.json",
     ];
 </script>
 

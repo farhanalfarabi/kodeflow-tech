@@ -239,19 +239,19 @@ export const translations = {
     ABOUT_TEAM_TITLE_HIGHLIGHT: "Kodeflow Tech",
     ABOUT_FOUNDERS_TITLE: "CO - Founder",
     ABOUT_FOUNDERS: [
-      { name: "Founder Name", role: "Founder", image: "/assets/teams/ribhi.png" },
-      { name: "Co-Founder Name", role: "CO Founder", image: "/assets/teams/tomi.png" }
+      { name: "Ahmad Ribhi", role: "Founder", image: "/assets/teams/ribhi.png" },
+      { name: "Kholili Kholil", role: "CO Founder", image: "/assets/teams/tomi.png" }
     ],
     ABOUT_SUPERVISORS_TITLE: "Supervisor",
     ABOUT_SUPERVISORS: [
-      { name: "Muhammad Fayi", role: "UI/UX Designer", image: "/assets/teams/fayi.png" },
-      { name: "Maulana", role: "Security and Network", image: "/assets/teams/maul.png" },
-      { name: "Rafikhul Akhiroh", role: "Mobile Dev", image: "/assets/teams/rafi.png" },
+      { name: "Muhammad Fayyih", role: "UI/UX Designer", image: "/assets/teams/fayi.png" },
+      { name: "Asmaul Husna", role: "Security and Network", image: "/assets/teams/maul.png" },
+      { name: "Muhammad Rafihul Akhiroh", role: "Mobile Dev", image: "/assets/teams/rafi.png" },
       { name: "Muhammad Rafif", role: "Project Manager", image: "/assets/teams/rafif.png" },
       { name: "Farhan Alfaraby", role: "Front End", image: "/assets/teams/farhan.png" },
-      { name: "Rodhi", role: "AI Automation", image: "/assets/teams/rodhi.png" },
-      { name: "Muhammad Murthado", role: "Back End", image: "/assets/teams/tado.png" },
-      { name: "Muhammad Taufik", role: "Dev Ops", image: "/assets/teams/taufik.png" }
+      { name: "Rodhi Firmansyah Akhmad", role: "AI Automation", image: "/assets/teams/rodhi.png" },
+      { name: "Muhammad Murtadho", role: "Back End", image: "/assets/teams/tado.png" },
+      { name: "Mukhammad Taufiqurrochman", role: "Dev Ops", image: "/assets/teams/taufik.png" }
     ],
 
     // SERVICES PAGE

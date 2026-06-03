@@ -89,7 +89,7 @@ Route::get('/blogs', function (Request $request) {
 
     if ($request->has('search') && $request->search) {
         $search = $request->search;
-        $query->where('title', 'like', "%{$search}%");
+        $query->where('title', 'ilike', "%{$search}%");
     }
 
     if ($request->has('category') && $request->category && $request->category !== 'semua') {
