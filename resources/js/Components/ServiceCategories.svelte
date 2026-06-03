@@ -44,7 +44,7 @@
     >
         {#each $t.APP_CATEGORIES as category}
             <div
-                class="bg-white rounded-[24px] p-8 border border-neutral-200 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-primary/20 transition-all duration-300 group flex flex-col h-full"
+                class="bg-white rounded-[32px] p-8 relative group transition-all duration-500 hover:-translate-y-1 flex flex-col h-full border border-black/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
             >
                 <div
                     class="size-14 rounded-2xl bg-neutral-50 flex items-center justify-center mb-6 group-hover:bg-primary/5 group-hover:scale-110 transition-all duration-300 ease-out border border-neutral-100 group-hover:border-primary/10"
@@ -55,7 +55,7 @@
                     />
                 </div>
 
-                <h3 class="font-display text-xl font-bold text-neutral-900 mb-5">
+                <h3 class="font-display text-2xl font-medium tracking-tight mb-5 text-primary-light drop-shadow-sm">
                     {category.title}
                 </h3>
 

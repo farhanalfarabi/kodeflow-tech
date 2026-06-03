@@ -14,6 +14,7 @@
     } from "lucide-svelte";
     import { router } from "@inertiajs/svelte";
     import AlertDialog from "../../../Components/ui/AlertDialog.svelte";
+    import Pagination from "../../../Components/ui/Pagination.svelte";
 
     export let media = {
         data: [],
@@ -505,44 +506,7 @@
         {/if}
 
         <!-- Pagination -->
-        {#if media.last_page > 1}
-            <div
-                class="flex items-center justify-between mt-8 border-t border-border pt-6"
-            >
-                <span class="text-sm text-foreground/50">
-                    Showing page {media.current_page} of {media.last_page} ({media.total}
-                    items)
-                </span>
-                <div class="flex items-center gap-2">
-                    {#each media.links as link}
-                        {#if link.url}
-                            <button
-                                on:click={() =>
-                                    router.get(
-                                        link.url,
-                                        {},
-                                        {
-                                            preserveState: true,
-                                            preserveScroll: true,
-                                        },
-                                    )}
-                                class="px-4 py-2 border rounded-xl text-sm font-medium transition-all {link.active
-                                    ? 'bg-primary border-primary text-white shadow-md shadow-primary/10'
-                                    : 'bg-card border-border text-foreground/70 hover:bg-foreground/5'}"
-                            >
-                                {@html link.label}
-                            </button>
-                        {:else}
-                            <span
-                                class="px-4 py-2 border border-dashed border-border text-foreground/30 text-sm font-medium rounded-xl select-none"
-                            >
-                                {@html link.label}
-                            </span>
-                        {/if}
-                    {/each}
-                </div>
-            </div>
-        {/if}
+        <Pagination data={media} />
     {:else}
         <div
             class="bg-card border border-border rounded-2xl p-16 flex flex-col items-center justify-center text-center shadow-sm"

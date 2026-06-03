@@ -46,9 +46,9 @@ export const translations = {
         items: ["AI Chatbot Customer Service", "Workflow Automation (n8n/Make)", "Sistem Data Scraping", "Integrasi AI ke Aplikasi"]
       },
       {
-        icon: "PlugZap",
-        title: "API & Integrations",
-        items: ["Integrasi Payment Gateway", "Koneksi API Pihak Ketiga", "Custom Middleware", "Legacy System Bridging"]
+        icon: "Server",
+        title: "Server",
+        items: ["Manajemen & Optimasi Server", "Cloud Architecture (AWS/GCP)", "Setup CI/CD Pipeline", "Pemeliharaan & Backup Berkala"]
       }
     ],
     REASONS: [
@@ -433,9 +433,9 @@ export const translations = {
         items: ["AI Customer Service Chatbots", "Workflow Automation (n8n/Make)", "Data Scraping Systems", "AI App Integrations"]
       },
       {
-        icon: "PlugZap",
-        title: "API & Integrations",
-        items: ["Payment Gateway Integration", "Third-Party API Connections", "Custom Middleware", "Legacy System Bridging"]
+        icon: "Server",
+        title: "Server",
+        items: ["Server Management & Optimization", "Cloud Architecture (AWS/GCP)", "CI/CD Pipeline Setup", "Maintenance & Scheduled Backups"]
       }
     ],
     REASONS: [

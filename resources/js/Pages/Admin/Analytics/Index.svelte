@@ -21,7 +21,7 @@
     export let errorMessage = null;
     export let hasError = false;
     export let currentPeriod = 7;
-    export let deviceData = { mobile: 54, desktop: 42, tablet: 4 };
+    export let deviceData = { mobile: 0, desktop: 0, tablet: 0 };
 
     const periodOptions = [
         { value: 7, label: "Last 7 Days" },
@@ -38,63 +38,63 @@
 
     // Mock data for display (used as fallback if API fails)
     export let stats = [
-        { title: "Total Visitors", value: "124,592", trend: "+12.5%", isUp: true, icon: Users, color: "text-blue-500", bg: "bg-blue-500/10" },
-        { title: "Page Views", value: "482,901", trend: "+24.1%", isUp: true, icon: Eye, color: "text-primary", bg: "bg-primary/10" },
-        { title: "Bounce Rate", value: "42.3%", trend: "-2.4%", isUp: true, icon: Activity, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-        { title: "Avg. Session Duration", value: "2m 45s", trend: "-0.5%", isUp: false, icon: Clock, color: "text-amber-500", bg: "bg-amber-500/10" }
+        { title: "Total Visitors", value: "0", trend: "0%", isUp: true, icon: Users, color: "text-blue-500", bg: "bg-blue-500/10" },
+        { title: "Page Views", value: "0", trend: "0%", isUp: true, icon: Eye, color: "text-primary", bg: "bg-primary/10" },
+        { title: "Bounce Rate", value: "0%", trend: "0%", isUp: true, icon: Activity, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+        { title: "Avg. Session Duration", value: "0s", trend: "0%", isUp: false, icon: Clock, color: "text-amber-500", bg: "bg-amber-500/10" }
     ];
 
     export let topPages = [
-        { path: "/", views: "145K", percentage: "35%" },
-        { path: "/services", views: "82K", percentage: "20%" },
-        { path: "/about", views: "45K", percentage: "11%" },
-        { path: "/blogs/best-frameworks-2026", views: "32K", percentage: "8%" },
-        { path: "/contact", views: "21K", percentage: "5%" }
+        { path: "-", views: "0", percentage: "0%" },
+        { path: "-", views: "0", percentage: "0%" },
+        { path: "-", views: "0", percentage: "0%" },
+        { path: "-", views: "0", percentage: "0%" },
+        { path: "-", views: "0", percentage: "0%" }
     ];
 
     export let trafficSources = [
-        { name: "Organic Search", users: "65%", color: "bg-primary" },
-        { name: "Direct", users: "20%", color: "bg-blue-500" },
-        { name: "Social Media", users: "10%", color: "bg-emerald-500" },
-        { name: "Referral", users: "5%", color: "bg-amber-500" }
+        { name: "-", users: "0%", color: "bg-primary" },
+        { name: "-", users: "0%", color: "bg-blue-500" },
+        { name: "-", users: "0%", color: "bg-emerald-500" },
+        { name: "-", users: "0%", color: "bg-amber-500" }
     ];
 
     // Additional GA4 Reports Props
     export let topCountries = [
-        { country: "Indonesia", views: "95K", percentage: "76%" },
-        { country: "Singapore", views: "15K", percentage: "12%" },
-        { country: "United States", views: "8K", percentage: "6%" },
-        { country: "Malaysia", views: "4K", percentage: "3%" },
-        { country: "Japan", views: "3K", percentage: "3%" }
+        { country: "-", views: "0", percentage: "0%" },
+        { country: "-", views: "0", percentage: "0%" },
+        { country: "-", views: "0", percentage: "0%" },
+        { country: "-", views: "0", percentage: "0%" },
+        { country: "-", views: "0", percentage: "0%" }
     ];
 
     export let topBrowsers = [
-        { browser: "Chrome", views: "85K", percentage: "68%" },
-        { browser: "Safari", views: "25K", percentage: "20%" },
-        { browser: "Edge", views: "8K", percentage: "6%" },
-        { browser: "Firefox", views: "5K", percentage: "4%" },
-        { browser: "Other", views: "2K", percentage: "2%" }
+        { browser: "-", views: "0", percentage: "0%" },
+        { browser: "-", views: "0", percentage: "0%" },
+        { browser: "-", views: "0", percentage: "0%" },
+        { browser: "-", views: "0", percentage: "0%" },
+        { browser: "-", views: "0", percentage: "0%" }
     ];
 
     export let topOperatingSystems = [
-        { os: "Windows", views: "55K", percentage: "44%" },
-        { os: "Android", views: "35K", percentage: "28%" },
-        { os: "iOS", views: "20K", percentage: "16%" },
-        { os: "macOS", views: "12K", percentage: "10%" },
-        { os: "Linux", views: "3K", percentage: "2%" }
+        { os: "-", views: "0", percentage: "0%" },
+        { os: "-", views: "0", percentage: "0%" },
+        { os: "-", views: "0", percentage: "0%" },
+        { os: "-", views: "0", percentage: "0%" },
+        { os: "-", views: "0", percentage: "0%" }
     ];
 
     let activeTab = "countries";
 
     // Mock chart data (heights for bars in percentage)
     export let chartData = [
-        { day: 'Mon', visitors: 1500, pageViews: 3800, visitorsHeight: 30, pageViewsHeight: 76 },
-        { day: 'Tue', visitors: 1800, pageViews: 4200, visitorsHeight: 36, pageViewsHeight: 84 },
-        { day: 'Wed', visitors: 1200, pageViews: 3100, visitorsHeight: 24, pageViewsHeight: 62 },
-        { day: 'Thu', visitors: 2200, pageViews: 4900, visitorsHeight: 44, pageViewsHeight: 98 },
-        { day: 'Fri', visitors: 1900, pageViews: 4000, visitorsHeight: 38, pageViewsHeight: 80 },
-        { day: 'Sat', visitors: 800, pageViews: 1800, visitorsHeight: 16, pageViewsHeight: 36 },
-        { day: 'Sun', visitors: 1000, pageViews: 2200, visitorsHeight: 20, pageViewsHeight: 44 }
+        { day: 'Mon', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 },
+        { day: 'Tue', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 },
+        { day: 'Wed', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 },
+        { day: 'Thu', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 },
+        { day: 'Fri', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 },
+        { day: 'Sat', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 },
+        { day: 'Sun', visitors: 0, pageViews: 0, visitorsHeight: 0, pageViewsHeight: 0 }
     ];
     const statIcons = {
         'Users': Users,

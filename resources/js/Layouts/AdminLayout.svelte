@@ -17,6 +17,7 @@
         ChevronLeft,
         ChevronRight,
     } from "lucide-svelte";
+    import Toast from "../Components/ui/Toast.svelte";
 
     export let title = "Dashboard";
 
@@ -389,4 +390,6 @@
             <slot />
         </main>
     </div>
+
+    <Toast />
 </div>

@@ -4,6 +4,7 @@
     import { Link, router } from "@inertiajs/svelte";
     import Select from "../../../Components/ui/Select.svelte";
     import AlertDialog from "../../../Components/ui/AlertDialog.svelte";
+    import Pagination from "../../../Components/ui/Pagination.svelte";
 
     export let portfolios = { data: [], links: [], total: 0, current_page: 1, last_page: 1 };
     export let categories = [];
@@ -232,35 +233,7 @@
         </div>
 
         <!-- Pagination Footer -->
-        {#if portfolios.last_page > 1}
-            <div
-                class="flex flex-col sm:flex-row sm:items-center justify-between p-6 border-t border-border bg-foreground/[0.01] gap-4"
-            >
-                <span class="text-sm text-foreground/50">
-                    Showing page {portfolios.current_page} of {portfolios.last_page} ({portfolios.total} items)
-                </span>
-                <div class="flex flex-wrap items-center gap-2">
-                    {#each portfolios.links as link}
-                        {#if link.url}
-                            <Link
-                                href={link.url}
-                                class="px-4 py-2 border rounded-xl text-sm font-medium transition-all {link.active
-                                    ? 'bg-primary border-primary text-white shadow-md shadow-primary/10'
-                                    : 'bg-card border-border text-foreground/70 hover:bg-foreground/5'}"
-                            >
-                                {@html link.label}
-                            </Link>
-                        {:else}
-                            <span
-                                class="px-4 py-2 border border-dashed border-border text-foreground/30 text-sm font-medium rounded-xl select-none"
-                            >
-                                {@html link.label}
-                            </span>
-                        {/if}
-                    {/each}
-                </div>
-            </div>
-        {/if}
+        <Pagination data={portfolios} />
     </div>
 </AdminLayout>
 
