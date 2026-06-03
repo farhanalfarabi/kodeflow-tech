@@ -27,10 +27,10 @@
 </script>
 
 <svelte:head>
-  <title>Portofolio Kami — Studi Kasus Solusi Digital | Kodeflow Tech</title>
-  <meta name="description" content="Lihat kumpulan hasil karya terbaik kami. Sistem ERP kustom, aplikasi mobile, dan otomatisasi alur kerja terintegrasi yang membantu bisnis skala nasional berkembang pesat." />
-  <meta property="og:title" content="Portofolio Kami — Studi Kasus Solusi Digital | Kodeflow Tech" />
-  <meta property="og:description" content="Koleksi studi kasus solusi digital terbaik dari Kodeflow Tech untuk transformasi operasional manufaktur, medis, dan bisnis enterprise." />
+  <title>{$currentLanguage === 'id' ? 'Portofolio Kami — Studi Kasus Solusi Digital | Kodeflow Tech' : 'Our Portfolio — Digital Solution Case Studies | Kodeflow Tech'}</title>
+  <meta name="description" content="{$currentLanguage === 'id' ? 'Lihat kumpulan hasil karya terbaik kami. Sistem ERP kustom, aplikasi mobile, dan otomatisasi alur kerja terintegrasi yang membantu bisnis skala nasional berkembang pesat.' : 'Explore our best work. Custom ERP systems, mobile applications, and integrated workflow automations that help national-scale businesses grow exponentially.'}" />
+  <meta property="og:title" content="{$currentLanguage === 'id' ? 'Portofolio Kami — Studi Kasus Solusi Digital | Kodeflow Tech' : 'Our Portfolio — Digital Solution Case Studies | Kodeflow Tech'}" />
+  <meta property="og:description" content="{$currentLanguage === 'id' ? 'Koleksi studi kasus solusi digital terbaik dari Kodeflow Tech untuk transformasi operasional manufaktur, medis, dan bisnis enterprise.' : 'A collection of the best digital solution case studies by Kodeflow Tech for operational transformation in manufacturing, medical, and enterprise businesses.'}" />
   <meta property="og:image" content="/og-portfolio.png" />
   <meta property="og:url" content="https://kodeflow.tech/portfolio" />
   <link rel="canonical" href="https://kodeflow.tech/portfolio" />

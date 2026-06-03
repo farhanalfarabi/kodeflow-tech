@@ -9,7 +9,7 @@
     whatsapp: settings.whatsapp || '',
     facebook: settings.facebook || '',
     instagram: settings.instagram || '',
-    threads: settings.threads || '',
+    linkedin: settings.linkedin || '',
     youtube: settings.youtube || '',
   });
 
@@ -129,27 +129,27 @@
                 {/if}
               </div>
 
-              <!-- Threads -->
+              <!-- LinkedIn -->
               <div class="space-y-2">
                 <label class="flex items-center gap-2 text-sm font-medium text-foreground/80">
-                  <span class="text-primary font-bold text-lg leading-none shrink-0">#</span>
-                  Threads URL
+                  <svg class="size-4 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                  LinkedIn URL
                 </label>
                 <div class="flex items-center gap-3">
                   <input 
                     type="url" 
-                    bind:value={form.threads}
-                    placeholder="https://www.threads.net/..."
+                    bind:value={form.linkedin}
+                    placeholder="https://www.linkedin.com/company/..."
                     class="flex-1 px-4 py-2.5 bg-background border border-border rounded-xl text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all"
                   />
-                  {#if form.threads}
-                    <a href={form.threads} target="_blank" class="w-11 h-11 flex items-center justify-center border border-border rounded-xl hover:bg-foreground/5 transition-colors text-foreground/60 shrink-0">
+                  {#if form.linkedin}
+                    <a href={form.linkedin} target="_blank" class="w-11 h-11 flex items-center justify-center border border-border rounded-xl hover:bg-foreground/5 transition-colors text-foreground/60 shrink-0">
                       <ExternalLink class="size-4" />
                     </a>
                   {/if}
                 </div>
-                {#if form.errors.threads}
-                  <p class="text-xs text-red-500">{form.errors.threads}</p>
+                {#if form.errors.linkedin}
+                  <p class="text-xs text-red-500">{form.errors.linkedin}</p>
                 {/if}
               </div>
 

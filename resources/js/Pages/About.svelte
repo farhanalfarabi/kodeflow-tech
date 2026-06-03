@@ -7,13 +7,14 @@
   import AboutVision from "../Components/About/AboutVision.svelte";
   import AboutValues from "../Components/About/AboutValues.svelte";
   import AboutTeam from "../Components/About/AboutTeam.svelte";
+  import { currentLanguage } from "../lib/i18n";
 </script>
 
 <svelte:head>
-  <title>Tentang Kami — Kodeflow Tech | PT Kodeflow Digital Indonesia</title>
-  <meta name="description" content="Kodeflow Tech didirikan 2022 di Pasuruan, Jawa Timur. Kami adalah dedicated IT team provider dan software house yang hadir tidak hanya saat build — tapi saat maintain, iterate, dan scale bersama bisnis Anda." />
-  <meta property="og:title" content="Tentang Kami — Kodeflow Tech | PT Kodeflow Digital Indonesia" />
-  <meta property="og:description" content="Kenali tim di balik Kodeflow Tech — visi, misi, nilai perusahaan, dan 50+ IT Professionals yang siap menjadi bagian dari tim Anda." />
+  <title>{$currentLanguage === 'id' ? 'Tentang Kami — Kodeflow Tech | PT Kodeflow Digital Indonesia' : 'About Us — Kodeflow Tech | PT Kodeflow Digital Indonesia'}</title>
+  <meta name="description" content="{$currentLanguage === 'id' ? 'Kodeflow Tech didirikan 2022 di Pasuruan, Jawa Timur. Kami adalah dedicated IT team provider dan software house yang hadir tidak hanya saat build — tapi saat maintain, iterate, dan scale bersama bisnis Anda.' : 'Kodeflow Tech was founded in 2022 in Pasuruan, East Java. We are a dedicated IT team provider and software house present not just to build, but to maintain, iterate, and scale with your business.'}" />
+  <meta property="og:title" content="{$currentLanguage === 'id' ? 'Tentang Kami — Kodeflow Tech | PT Kodeflow Digital Indonesia' : 'About Us — Kodeflow Tech | PT Kodeflow Digital Indonesia'}" />
+  <meta property="og:description" content="{$currentLanguage === 'id' ? 'Kenali tim di balik Kodeflow Tech — visi, misi, nilai perusahaan, dan 50+ IT Professionals yang siap menjadi bagian dari tim Anda.' : 'Get to know the team behind Kodeflow Tech — our vision, mission, core values, and 50+ IT Professionals ready to join your team.'}" />
   <meta property="og:image" content="/og-about.png" />
   <meta property="og:url" content="https://kodeflow.tech/about" />
   <link rel="canonical" href="https://kodeflow.tech/about" />

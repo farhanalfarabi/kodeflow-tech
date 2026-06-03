@@ -24,16 +24,38 @@
 
 <svelte:head>
     {#if item}
-        <title>{item.title} — Studi Kasus Kodeflow Tech</title>
+        <title>{item.title} {lang === 'id' ? '— Studi Kasus Kodeflow Tech' : '— Kodeflow Tech Case Study'}</title>
         <meta name="description" content={item.subtitle} />
-        <meta
-            property="og:title"
-            content="{item.title} — Studi Kasus Kodeflow Tech"
-        />
+        <meta property="og:title" content="{item.title} {lang === 'id' ? '— Studi Kasus Kodeflow Tech' : '— Kodeflow Tech Case Study'}" />
         <meta property="og:description" content={item.subtitle} />
         <meta property="og:image" content={item.image} />
+        <meta property="og:type" content="article" />
+        
+        {@html `
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": ${JSON.stringify(item.title)},
+            "description": ${JSON.stringify(item.subtitle)},
+            "image": ${JSON.stringify("https://kodeflow.tech" + item.image)},
+            "author": {
+              "@type": "Organization",
+              "name": "Kodeflow Tech"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Kodeflow Tech",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://kodeflow.tech/logo.png"
+              }
+            }
+          }
+          </script>
+        `}
     {:else}
-        <title>Studi Kasus Portofolio — Kodeflow Tech</title>
+        <title>{lang === 'id' ? 'Studi Kasus Portofolio — Kodeflow Tech' : 'Portfolio Case Studies — Kodeflow Tech'}</title>
     {/if}
 </svelte:head>
 

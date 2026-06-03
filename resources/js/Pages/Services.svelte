@@ -8,13 +8,14 @@
   import ServicesProcess from "../Components/Services/ServicesProcess.svelte";
   import ServicesTechStack from "../Components/Services/ServicesTechStack.svelte";
   import ServicesFaq from "../Components/Services/ServicesFaq.svelte";
+  import { currentLanguage } from "../lib/i18n";
 </script>
 
 <svelte:head>
-  <title>Services — Dedicated IT Team | Kodeflow Tech</title>
-  <meta name="description" content="Sewa tim IT profesional dari Kodeflow Tech: Frontend Developer, Backend Developer, Mobile, DevOps, AI Engineer, UI/UX, PM, dan QA. Tanpa deposit, tanpa rekrut, siap dalam 2 minggu." />
-  <meta property="og:title" content="Services — Dedicated IT Team | Kodeflow Tech" />
-  <meta property="og:description" content="8 posisi IT profesional tersedia. Termonitor dari kantor kami, siap bergabung dalam 2 minggu. Tanpa deposit, trial period tersedia." />
+  <title>{$currentLanguage === 'id' ? 'Layanan Kami — Dedicated IT Team | Kodeflow Tech' : 'Our Services — Dedicated IT Team | Kodeflow Tech'}</title>
+  <meta name="description" content="{$currentLanguage === 'id' ? 'Sewa tim IT profesional dari Kodeflow Tech: Frontend Developer, Backend Developer, Mobile, DevOps, AI Engineer, UI/UX, PM, dan QA. Tanpa deposit, tanpa rekrut, siap dalam 2 minggu.' : 'Hire professional IT teams from Kodeflow Tech: Frontend Developer, Backend Developer, Mobile, DevOps, AI Engineer, UI/UX, PM, and QA. No deposit, no hiring hassle, ready in 2 weeks.'}" />
+  <meta property="og:title" content="{$currentLanguage === 'id' ? 'Layanan Kami — Dedicated IT Team | Kodeflow Tech' : 'Our Services — Dedicated IT Team | Kodeflow Tech'}" />
+  <meta property="og:description" content="{$currentLanguage === 'id' ? '8 posisi IT profesional tersedia. Termonitor dari kantor kami, siap bergabung dalam 2 minggu. Tanpa deposit, trial period tersedia.' : '8 professional IT roles available. Monitored from our office, ready to join in 2 weeks. No deposit, trial period available.'}" />
   <meta property="og:image" content="/og-services.png" />
   <meta property="og:url" content="https://kodeflow.tech/services" />
   <link rel="canonical" href="https://kodeflow.tech/services" />

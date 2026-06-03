@@ -4,7 +4,7 @@
   import Navbar from "../Components/Navbar.svelte";
   import CtaFooter from "../Components/CtaFooter.svelte";
   import BlogCta from "../Components/Blog/BlogCta.svelte";
-  import { t } from "@/lib/i18n";
+  import { t, currentLanguage } from "@/lib/i18n";
 
   export let blog = {};
   export let relatedArticles = [];
@@ -34,8 +34,37 @@
 </script>
 
 <svelte:head>
-  <title>{blog.title} — Kodeflow Tech Blog</title>
+  <title>{blog.title} {$currentLanguage === 'id' ? '— Kodeflow Tech Blog' : '— Kodeflow Tech Blog'}</title>
   <meta name="description" content={blog.desc} />
+  <meta property="og:title" content="{blog.title} {$currentLanguage === 'id' ? '— Kodeflow Tech Blog' : '— Kodeflow Tech Blog'}" />
+  <meta property="og:description" content={blog.desc} />
+  <meta property="og:image" content={blog.image_path} />
+  <meta property="og:type" content="article" />
+  
+  {@html `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": ${JSON.stringify(blog.title)},
+      "description": ${JSON.stringify(blog.desc)},
+      "image": ${JSON.stringify(blog.image_path ? "https://kodeflow.tech" + blog.image_path : "")},
+      "datePublished": ${JSON.stringify(blog.publish_date)},
+      "author": {
+        "@type": "Person",
+        "name": ${JSON.stringify(blog.author?.name || "Admin")}
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kodeflow Tech",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://kodeflow.tech/logo.png"
+        }
+      }
+    }
+    </script>
+  `}
 </svelte:head>
 
 <div class="bg-background text-foreground min-h-screen relative noise overflow-x-hidden">

@@ -15,7 +15,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $settings = Setting::whereIn('key', ['whatsapp', 'facebook', 'instagram', 'threads', 'youtube'])
+        $settings = Setting::whereIn('key', ['whatsapp', 'facebook', 'instagram', 'linkedin', 'youtube'])
             ->pluck('value', 'key');
 
         return Inertia::render('Admin/Settings/Index', [
@@ -32,7 +32,7 @@ class SettingController extends Controller
             'whatsapp' => 'nullable|string',
             'facebook' => 'nullable|url',
             'instagram' => 'nullable|url',
-            'threads' => 'nullable|url',
+            'linkedin' => 'nullable|url',
             'youtube' => 'nullable|url',
         ]);
 

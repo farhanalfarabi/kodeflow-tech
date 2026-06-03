@@ -73,20 +73,22 @@
     <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6">
         <div class="max-w-3xl text-left">
             {#key headlineRecreateKey}
-                <BlurText
-                    text={$t.HERO_HEADLINE}
-                    as="h1"
-                    class="font-display text-5xl md:text-7xl lg:text-[90px] leading-[1.05] tracking-tight text-foreground mb-5"
-                    delay={90}
-                    startDelay={150}
-                />
-                <BlurText
-                    text={$t.HERO_HEADLINE2}
-                    as="h1"
-                    class="font-display text-5xl md:text-4xl lg:text-[80px] leading-[1.05] text-primary-light"
-                    delay={90}
-                    startDelay={150}
-                />
+                <h1 class="flex flex-col">
+                    <BlurText
+                        text={$t.HERO_HEADLINE}
+                        as="span"
+                        class="block font-display text-5xl md:text-7xl lg:text-[90px] leading-[1.05] tracking-tight text-foreground mb-5"
+                        delay={90}
+                        startDelay={150}
+                    />
+                    <BlurText
+                        text={$t.HERO_HEADLINE2}
+                        as="span"
+                        class="block font-display text-5xl md:text-4xl lg:text-[80px] leading-[1.05] text-primary-light"
+                        delay={90}
+                        startDelay={150}
+                    />
+                </h1>
             {/key}
 
             <div use:inview on:enter={() => (showSub = true)}>

@@ -16,7 +16,7 @@ class SettingSeeder extends Seeder
             ['key' => 'whatsapp', 'value' => '6281234567890'],
             ['key' => 'facebook', 'value' => 'https://facebook.com/kodeflow'],
             ['key' => 'instagram', 'value' => 'https://instagram.com/kodeflow.id'],
-            ['key' => 'threads', 'value' => 'https://threads.net/@kodeflow.id'],
+            ['key' => 'linkedin', 'value' => 'https://linkedin.com/company/kodeflow'],
             ['key' => 'youtube', 'value' => 'https://youtube.com/@kodeflow'],
         ];
 

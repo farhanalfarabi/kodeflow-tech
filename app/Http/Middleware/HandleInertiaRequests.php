@@ -41,7 +41,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'social_links' => \Illuminate\Support\Facades\Cache::rememberForever('social_links', function () {
-                return \App\Models\Setting::whereIn('key', ['whatsapp', 'facebook', 'instagram', 'threads', 'youtube'])
+                return \App\Models\Setting::whereIn('key', ['whatsapp', 'facebook', 'instagram', 'linkedin', 'youtube'])
                     ->pluck('value', 'key')
                     ->toArray();
             }),

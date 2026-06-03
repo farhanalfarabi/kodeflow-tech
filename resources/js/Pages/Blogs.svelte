@@ -8,13 +8,14 @@
   export let blogs = {};
   export let categories = [];
   export let filters = { search: "", category: "semua" };
+  import { currentLanguage } from "../lib/i18n";
 </script>
 
 <svelte:head>
-  <title>Blog & Insights — Kodeflow Tech | PT Kodeflow Digital Indonesia</title>
-  <meta name="description" content="Artikel praktis tentang IT, digitalisasi, dan cara membangun tim teknologi yang bisa diandalkan. Temukan insight untuk bisnis yang sedang scaling." />
-  <meta property="og:title" content="Blog & Insights — Kodeflow Tech | PT Kodeflow Digital Indonesia" />
-  <meta property="og:description" content="Artikel praktis tentang IT, digitalisasi, dan cara membangun tim teknologi yang bisa diandalkan." />
+  <title>{$currentLanguage === 'id' ? 'Blog & Insights — Kodeflow Tech | PT Kodeflow Digital Indonesia' : 'Blog & Insights — Kodeflow Tech | PT Kodeflow Digital Indonesia'}</title>
+  <meta name="description" content="{$currentLanguage === 'id' ? 'Artikel praktis tentang IT, digitalisasi, dan cara membangun tim teknologi yang bisa diandalkan. Temukan insight untuk bisnis yang sedang scaling.' : 'Practical articles on IT, digitalization, and building reliable tech teams. Find insights for your scaling business.'}" />
+  <meta property="og:title" content="{$currentLanguage === 'id' ? 'Blog & Insights — Kodeflow Tech | PT Kodeflow Digital Indonesia' : 'Blog & Insights — Kodeflow Tech | PT Kodeflow Digital Indonesia'}" />
+  <meta property="og:description" content="{$currentLanguage === 'id' ? 'Artikel praktis tentang IT, digitalisasi, dan cara membangun tim teknologi yang bisa diandalkan.' : 'Practical articles on IT, digitalization, and building reliable tech teams.'}" />
   <meta property="og:image" content="/og-blog.png" />
   <meta property="og:url" content="https://kodeflow.tech/blogs" />
   <link rel="canonical" href="https://kodeflow.tech/blogs" />

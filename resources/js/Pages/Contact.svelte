@@ -44,15 +44,6 @@
     }
   ];
 
-  // PT Corporate specifications
-  const ptSpecs = [
-    { label: "Nama Resmi", value: "PT Kodeflow Digital Indonesia" },
-    { label: "Bentuk Badan Hukum", value: "Perseroan Terbatas (PT)" },
-    { label: "Nomor NIB", value: "0220202534591" },
-    { label: "Nomor NPWP", value: "40.123.456.7-643.000" },
-    { label: "Keputusan Kemenkumham", value: "AHU-0023456.AH.01.01.Tahun 2022" },
-    { label: "Klasifikasi Baku Lapangan Usaha (KBLI)", value: "62019 (Aktivitas Pemrograman Komputer Lainnya)" }
-  ];
 </script>
 
 <svelte:head>
@@ -128,7 +119,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div 
-          on:click={() => copyToClipboard('hello@kodeflow.id')}
+          on:click={() => copyToClipboard('admin@kodeflow.id')}
           class="liquid-glass rounded-3xl p-8 flex flex-col group transition-all duration-500 hover:shadow-xl hover:shadow-primary-light/5 hover:translate-y-[-4px] cursor-pointer relative overflow-hidden"
         >
           <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-light/10 rounded-full blur-2xl group-hover:bg-primary-light/20 transition-all"></div>
@@ -140,7 +131,7 @@
           <span class="text-xs font-semibold text-primary-light tracking-wider uppercase mb-2">OFFICIAL EMAIL</span>
           
           <h3 class="font-display text-2xl font-bold text-white group-hover:text-primary-light transition-colors mb-3">
-            hello@kodeflow.id
+            admin@kodeflow.id
           </h3>
           
           <p class="font-body text-sm text-foreground/60 leading-relaxed mb-6">
@@ -178,6 +169,16 @@
           
           <!-- Social links list -->
           <div class="grid grid-cols-2 gap-3 mt-2">
+            <a 
+              href={page.props.social_links?.linkedin || "https://linkedin.com"} 
+              target="_blank" 
+              class="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-sm text-foreground/80 hover:text-white transition-colors col-span-2 sm:col-span-1"
+            >
+              <svg class="size-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
             <a 
               href={page.props.social_links?.instagram || "https://instagram.com"} 
               target="_blank" 
@@ -234,16 +235,12 @@
             <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/5">
               <MapPin class="size-5 text-primary-light shrink-0 mt-0.5" />
               <div>
-                <span class="block font-display text-sm font-bold text-white uppercase mb-1">Head Office Sidoarjo</span>
-                <span class="block font-body text-sm text-foreground/60">Jalan Raya Buduran No. 12, Sidoarjo, Jawa Timur - 61252</span>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/5">
-              <MapPin class="size-5 text-primary-light shrink-0 mt-0.5" />
-              <div>
-                <span class="block font-display text-sm font-bold text-white uppercase mb-1">Branch Office Pasuruan</span>
-                <span class="block font-body text-sm text-foreground/60">Jalan Pahlawan No. 45, Pasuruan, Jawa Timur - 67126</span>
+                <span class="block font-display text-sm font-bold text-white uppercase mb-1">Head Office</span>
+                <span class="block font-body text-sm text-foreground/60">Jl. Layur No.Ruko, Gomyok, Lapangan, Kec. Bangil, Pasuruan, Jawa Timur 67153</span>
+                <a href="https://maps.app.goo.gl/Qc186ajTq4HNUu2J6" target="_blank" class="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-primary-light hover:underline">
+                  Buka di Google Maps
+                  <ExternalLink class="size-3.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -254,7 +251,7 @@
           <div class="w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
             <iframe 
               title="Kodeflow Tech Office Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15825.875322971268!2d112.71536768393695!3d-7.446549247653609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e6a71e19dc29%3A0x673c683b5443be12!2sBuduran%2C%20Sidoarjo%20Regency%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1716500000000!5m2!1sen!2sid" 
+              src="https://www.google.com/maps?q=Jl.+Layur+No.Ruko,+Gomyok,+Lapangan,+Kec.+Bangil,+Pasuruan,+Jawa+Timur+67153&output=embed" 
               class="w-full h-full border-0 grayscale saturate-50 opacity-80 hover:opacity-100 transition-opacity duration-500" 
               allowfullscreen="" 
               loading="lazy" 
@@ -287,29 +284,10 @@
       </div>
 
       <!-- Legal content grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div class="max-w-3xl mx-auto">
         
-        <!-- Specs Table Column -->
-        <div class="lg:col-span-6">
-          <div class="liquid-glass rounded-3xl p-8 border border-white/10 shadow-2xl">
-            <h3 class="font-display text-2xl font-bold text-white mb-6 uppercase flex items-center gap-2">
-              <FileText class="size-5 text-primary-light" />
-              <span>{$currentLanguage === 'id' ? 'Data Kepatuhan Perusahaan' : 'Corporate Identity Specs'}</span>
-            </h3>
-
-            <div class="space-y-4">
-              {#each ptSpecs as spec}
-                <div class="py-3.5 border-b border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <span class="font-body text-xs font-semibold text-white/50 uppercase tracking-wide shrink-0">{spec.label}</span>
-                  <span class="font-body text-sm font-semibold text-white text-left sm:text-right leading-relaxed">{spec.value}</span>
-                </div>
-              {/each}
-            </div>
-          </div>
-        </div>
-
         <!-- Papers Preview Column -->
-        <div class="lg:col-span-6">
+        <div class="w-full">
           {#each legalDocs as doc}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
