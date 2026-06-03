@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { X, Search, Check, UploadCloud, Grid, ImageIcon } from "lucide-svelte";
+  import imageCompression from 'browser-image-compression';
 
   export let isOpen = false;
   export let onSelect = (mediaItem) => {};
@@ -66,13 +67,27 @@
     fileInput.click();
   }
 
-  function handleUpload(e) {
-    const file = e.target.files[0];
+  async function handleUpload(e) {
+    let file = e.target.files[0];
     if (!file) return;
 
     isUploading = true;
+
+    // Compress image if larger than 2MB
+    if (file.type.startsWith("image/") && file.size > 2 * 1024 * 1024) {
+      try {
+        file = await imageCompression(file, {
+          maxSizeMB: 2,
+          maxWidthOrHeight: 1920,
+          useWebWorker: true,
+        });
+      } catch (error) {
+        console.error("Gagal mengkompresi gambar:", error);
+      }
+    }
+
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('file', file, file.name);
 
     fetch('/admin/media?api=1', {
       method: 'POST',

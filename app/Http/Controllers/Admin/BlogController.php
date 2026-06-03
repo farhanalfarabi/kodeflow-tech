@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -68,30 +69,9 @@ class BlogController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'desc' => 'required|string',
-            'content' => 'required|string',
-            'ai_summary' => 'nullable|string',
-            'read_time' => 'required|integer|min:1',
-            'is_featured' => 'boolean',
-            'publish_date' => 'nullable|date',
-            'category_name' => 'required|string|max:100',
-            'tags' => 'array',
-            'tags.*' => 'string',
-            'image' => 'nullable|image|max:5120', // max 5MB
-            'image_path' => 'nullable|string|max:255',
-            'status' => 'required|in:draft,published',
-            'author_id' => 'required|exists:users,id',
-            'related_blogs' => 'nullable|array',
-            'related_blogs.*' => 'exists:blogs,id',
-            'meta_title' => 'nullable|string',
-            'meta_description' => 'nullable|string',
-            'focus_keywords' => 'nullable|array',
-            'focus_keywords.*' => 'string|max:50',
-        ]);
+        $validated = $request->validated();
 
         // Cari atau buat kategori baru otomatis (mencegah duplikasi)
         $category = Category::firstOrCreate(
@@ -168,32 +148,11 @@ class BlogController extends Controller
         ]);
     }
 
-    public function update(Request $request, $slug)
+    public function update(BlogRequest $request, $slug)
     {
         $blog = Blog::where('slug', $slug)->firstOrFail();
         
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'desc' => 'required|string',
-            'content' => 'required|string',
-            'ai_summary' => 'nullable|string',
-            'read_time' => 'required|integer|min:1',
-            'is_featured' => 'boolean',
-            'publish_date' => 'nullable|date',
-            'category_name' => 'required|string|max:100',
-            'tags' => 'array',
-            'tags.*' => 'string',
-            'image' => 'nullable|image|max:5120',
-            'image_path' => 'nullable|string|max:255',
-            'status' => 'required|in:draft,published',
-            'author_id' => 'required|exists:users,id',
-            'related_blogs' => 'nullable|array',
-            'related_blogs.*' => 'exists:blogs,id',
-            'meta_title' => 'nullable|string',
-            'meta_description' => 'nullable|string',
-            'focus_keywords' => 'nullable|array',
-            'focus_keywords.*' => 'string|max:50',
-        ]);
+        $validated = $request->validated();
 
         $category = Category::firstOrCreate(
             ['name' => $validated['category_name']],

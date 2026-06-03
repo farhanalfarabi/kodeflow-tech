@@ -1,14 +1,28 @@
 <script>
     import { Image as ImageIcon, UploadCloud } from "lucide-svelte";
     import MediaLibraryModal from "@/Components/MediaLibraryModal.svelte";
+    import imageCompression from 'browser-image-compression';
 
     let { form, featuredImagePreview = $bindable(null) } = $props();
 
     let isMediaModalOpen = $state(false);
 
-    function handleImageUpload(e) {
-        const file = e.target.files[0];
+    async function handleImageUpload(e) {
+        let file = e.target.files[0];
         if (file) {
+            // Compress image if larger than 2MB
+            if (file.type.startsWith("image/") && file.size > 2 * 1024 * 1024) {
+                try {
+                    file = await imageCompression(file, {
+                        maxSizeMB: 2,
+                        maxWidthOrHeight: 1920,
+                        useWebWorker: true,
+                    });
+                } catch (error) {
+                    console.error("Gagal mengkompresi gambar:", error);
+                }
+            }
+
             form.image = file;
             featuredImagePreview = URL.createObjectURL(file);
             form.image_path = null;

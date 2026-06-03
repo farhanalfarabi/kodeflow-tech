@@ -33,10 +33,25 @@
         }
     }
 
+    import imageCompression from 'browser-image-compression';
+
     // Upload handle
-    function handleFileChange(e) {
-        const file = e.target.files[0];
+    async function handleFileChange(e) {
+        let file = e.target.files[0];
         if (file) {
+            // Compress image if larger than 2MB
+            if (file.type.startsWith("image/") && file.size > 2 * 1024 * 1024) {
+                try {
+                    file = await imageCompression(file, {
+                        maxSizeMB: 2,
+                        maxWidthOrHeight: 1920,
+                        useWebWorker: true,
+                    });
+                } catch (error) {
+                    console.error("Gagal mengkompresi gambar:", error);
+                }
+            }
+
             form.image = file;
             
             // Cleanup previous local object URL to prevent memory leaks

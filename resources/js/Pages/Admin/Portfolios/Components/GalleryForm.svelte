@@ -1,5 +1,6 @@
 <script>
     import { Plus, Trash2, ImageIcon } from "lucide-svelte";
+    import imageCompression from 'browser-image-compression';
 
     // Svelte 5 props
     let { form } = $props();
@@ -48,9 +49,21 @@
                                 <input 
                                     type="file" 
                                     accept="image/*"
-                                    on:change={(e) => {
-                                        const file = e.target.files[0];
+                                    on:change={async (e) => {
+                                        let file = e.target.files[0];
                                         if (file) {
+                                            if (file.type.startsWith("image/") && file.size > 2 * 1024 * 1024) {
+                                                try {
+                                                    file = await imageCompression(file, {
+                                                        maxSizeMB: 2,
+                                                        maxWidthOrHeight: 1920,
+                                                        useWebWorker: true,
+                                                    });
+                                                } catch (error) {
+                                                    console.error("Gagal mengkompresi gambar:", error);
+                                                }
+                                            }
+                                            
                                             let newGallery = [...form.gallery];
                                             newGallery[index].file = file;
                                             newGallery[index].preview = URL.createObjectURL(file);

@@ -4,6 +4,7 @@
   import { Link, router } from "@inertiajs/svelte";
   import AlertDialog from "../../../Components/ui/AlertDialog.svelte";
   import Pagination from "../../../Components/ui/Pagination.svelte";
+  import SearchInput from "../../../Components/ui/SearchInput.svelte";
 
   export let leads = { data: [], links: [], total: 0, current_page: 1, last_page: 1 };
   export let filters = { search: "" };
@@ -16,14 +17,6 @@
     router.get('/admin/leads', { 
       search: searchQuery
     }, { preserveState: true });
-  }
-
-  let searchTimeout;
-  function handleSearchInput() {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
-      handleFilter();
-    }, 500);
   }
 
   let isDeleteDialogOpen = false;
@@ -63,16 +56,12 @@
   <!-- Filters & Search -->
   <div class="bg-card border border-border rounded-2xl p-4 mb-6 flex flex-col sm:flex-row gap-4 justify-between items-center shadow-sm">
     <div class="flex items-center gap-2 w-full sm:w-auto">
-      <div class="relative w-full sm:w-80">
-        <Search class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-foreground/40" />
-        <input 
-          type="text" 
-          bind:value={searchQuery}
-          on:input={handleSearchInput}
-          placeholder="Search by name, company, or message..." 
-          class="w-full pl-9 pr-4 py-2 bg-foreground/5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" 
-        />
-      </div>
+      <SearchInput 
+        bind:value={searchQuery}
+        on:search={handleFilter}
+        placeholder="Search by name, company, or message..." 
+        class="w-full sm:w-80"
+      />
     </div>
   </div>
 
